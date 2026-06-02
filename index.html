@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>酒店 / 民宿运营数据看板</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Homestay Operations</p>
+          <h1>酒店 / 民宿运营数据看板</h1>
+          <p id="sourceLine" class="source-line">正在读取数据...</p>
+        </div>
+        <button id="reloadBtn" class="ghost-button" type="button">刷新</button>
+      </header>
+
+      <section id="kpiGrid" class="kpi-grid" aria-label="核心运营指标"></section>
+
+      <section class="dashboard-grid">
+        <article class="panel span-7">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Conversion</p>
+              <h2>线索转化漏斗</h2>
+            </div>
+            <span class="tag">前端获客</span>
+          </div>
+          <div id="funnelChart" class="bar-chart"></div>
+        </article>
+
+        <article class="panel span-5">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Sources</p>
+              <h2>线索来源分布</h2>
+            </div>
+            <span class="tag teal">内容渠道</span>
+          </div>
+          <div id="sourceChart" class="bar-chart compact"></div>
+        </article>
+
+        <article class="panel span-6">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Properties</p>
+              <h2>房源评估结论</h2>
+            </div>
+            <span class="tag orange">收房判断</span>
+          </div>
+          <div id="propertyChart" class="bar-chart"></div>
+        </article>
+
+        <article class="panel span-6">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Revenue</p>
+              <h2>收入与净收益</h2>
+            </div>
+            <span class="tag teal">经营结果</span>
+          </div>
+          <div id="revenueChart" class="money-chart"></div>
+        </article>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Attention</p>
+              <h2>风险与待办摘要</h2>
+            </div>
+          </div>
+          <div id="riskList" class="risk-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Leads</p>
+              <h2>近期线索</h2>
+            </div>
+          </div>
+          <div id="leadTable" class="mini-table"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Maintenance</p>
+              <h2>维修跟进</h2>
+            </div>
+          </div>
+          <div id="repairTable" class="mini-table"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

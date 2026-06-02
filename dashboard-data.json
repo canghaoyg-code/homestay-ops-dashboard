@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "title": "酒店 / 民宿运营数据看板",
+    "source": "酒店民宿运营SOP数据看板.xlsx",
+    "generatedAt": "2026-06-02T20:37:25"
+  },
+  "kpis": [
+    {
+      "label": "新增线索",
+      "value": 2,
+      "unit": "条",
+      "note": "线索池规模"
+    },
+    {
+      "label": "有效线索",
+      "value": 2,
+      "unit": "条",
+      "note": "需持续跟进"
+    },
+    {
+      "label": "A级客户",
+      "value": 1,
+      "unit": "位",
+      "note": "当天优先联系"
+    },
+    {
+      "label": "建议接房源",
+      "value": 1,
+      "unit": "套",
+      "note": "可进入报价"
+    },
+    {
+      "label": "本月净收益",
+      "value": -300.0,
+      "unit": "元",
+      "note": "房东月报口径",
+      "format": "money"
+    }
+  ],
+  "charts": {
+    "funnel": [
+      {
+        "label": "新增线索",
+        "value": 2
+      },
+      {
+        "label": "有效线索",
+        "value": 2
+      },
+      {
+        "label": "A级客户",
+        "value": 1
+      },
+      {
+        "label": "预约看房",
+        "value": 0
+      },
+      {
+        "label": "已签约",
+        "value": 0
+      }
+    ],
+    "sources": [
+      {
+        "label": "抖音",
+        "value": 2
+      },
+      {
+        "label": "微信",
+        "value": 0
+      },
+      {
+        "label": "电话",
+        "value": 0
+      },
+      {
+        "label": "朋友转介绍",
+        "value": 0
+      },
+      {
+        "label": "其他",
+        "value": 0
+      }
+    ],
+    "properties": [
+      {
+        "label": "建议接",
+        "value": 1
+      },
+      {
+        "label": "谨慎接",
+        "value": 0
+      },
+      {
+        "label": "不建议接",
+        "value": 0
+      },
+      {
+        "label": "需补充信息",
+        "value": 0
+      }
+    ],
+    "revenue": [
+      {
+        "label": "预估月收入",
+        "value": 5600.0
+      },
+      {
+        "label": "预估月净收益",
+        "value": 1328.0
+      },
+      {
+        "label": "本月总收入",
+        "value": 5600.0
+      },
+      {
+        "label": "本月净收益",
+        "value": -300.0
+      }
+    ]
+  },
+  "risks": [
+    {
+      "module": "线索",
+      "metric": "待初筛/待资料",
+      "value": 2,
+      "rule": "当天状态仍未推进",
+      "action": "当天清理，避免线索过期"
+    },
+    {
+      "module": "房源",
+      "metric": "平均评估分",
+      "value": 26.0,
+      "rule": "低于20分谨慎推进",
+      "action": "复核物业、竞品和投入风险"
+    },
+    {
+      "module": "收益",
+      "metric": "平均回本月数",
+      "value": 60.2,
+      "rule": "超过24个月需重新评估",
+      "action": "调整投入、定价或放弃接房"
+    },
+    {
+      "module": "维修",
+      "metric": "未完成维修",
+      "value": 1,
+      "rule": "影响入住问题优先",
+      "action": "优先处理高优先级维修"
+    },
+    {
+      "module": "房东",
+      "metric": "平均入住率",
+      "value": 66.7,
+      "unit": "%",
+      "rule": "低入住率房源进入复盘",
+      "action": "优化首图、价格和入住说明"
+    }
+  ],
+  "tables": {
+    "hotLeads": [
+      {
+        "id": "L-001",
+        "name": "张先生",
+        "area": "观山湖区",
+        "need": "托管",
+        "status": "待初筛",
+        "next": "2026-06-03"
+      },
+      {
+        "id": "L-002",
+        "name": "李女士",
+        "area": "南明区",
+        "need": "装修+托管",
+        "status": "待资料",
+        "next": "2026-06-05"
+      }
+    ],
+    "repairs": [
+      {
+        "id": "R-001",
+        "property": "H-001",
+        "type": "门锁",
+        "priority": "中",
+        "status": "处理中",
+        "due": "2026-06-03"
+      }
+    ],
+    "reviews": [
+      {
+        "period": "周",
+        "leads": 20,
+        "valid": 8,
+        "signed": 1,
+        "issue": "停车指引咨询较多",
+        "action": "补充入住指引"
+      }
+    ]
+  }
+}
