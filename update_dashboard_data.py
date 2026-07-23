@@ -33,14 +33,17 @@ def main():
         df.columns = [str(val).strip() for val in df.iloc[2].values]
         df = df.iloc[3:]
         
-    df = df.dropna(subset=['日期', '店名'])
+    # 【核心修复】：不仅要过滤日期和店名，还要过滤“今天使用间数”为 NaN 的行（因为7月20日没有去采集，数据全空，不应计入统计日期）
+    df = df.dropna(subset=['日期', '店名', '今天使用间数'])
     
     # 清洗数据
     df['总间数'] = pd.to_numeric(df['总间数'], errors='coerce')
     df['今天使用间数'] = pd.to_numeric(df['今天使用间数'], errors='coerce')
     df['使用率'] = pd.to_numeric(df['使用率'], errors='coerce')
     
-    # 格式化日期：有些可能是 datetime 对象，有些是字符串
+    # 重新计算使用率，以防手写数据有算错的
+    df['使用率'] = df['今天使用间数'] / df['总间数']
+    
     df['日期_dt'] = pd.to_datetime(df['日期'], errors='coerce')
     df = df.dropna(subset=['日期_dt'])
     df = df.sort_values(by='日期_dt')
@@ -61,12 +64,10 @@ def main():
             "rooms": int(round(row['平均总间数'])) if pd.notnull(row['平均总间数']) else 0
         })
         
-    # 2. 计算每日走势 trendData
-    # 获取所有不重复的有效日期并排序
+    # 2. 计算每日走势 trendData (过滤掉未采集日 07-20 后的日期列表)
     all_dates = sorted(df['日期_str'].unique())
-    print(f"有效统计日期: {all_dates}")
+    print(f"有效统计日期（已过滤未采集的07-20）: {all_dates}")
     
-    # 选择排名前6的店铺画折线图（或者与之前一致）
     top_shops = summary['店名'].head(6).tolist()
     trend_dict = {}
     
@@ -110,7 +111,6 @@ def main():
     chart1_path = os.path.join(workspace_dir, 'average_occupancy.png')
     plt.savefig(chart1_path, bbox_inches='tight')
     plt.close()
-    print("图表 1 (average_occupancy.png) 已更新")
     
     # 图 2: 趋势折线图
     colors_dict = {
@@ -139,18 +139,13 @@ def main():
     chart2_path = os.path.join(workspace_dir, 'daily_trend.png')
     plt.savefig(chart2_path, bbox_inches='tight')
     plt.close()
-    print("图表 2 (daily_trend.png) 已更新")
 
     # 4. 读取旧的 dashboard.html，并在里面替换数据
     html_path = os.path.join(workspace_dir, 'dashboard.html')
     with open(html_path, 'r', encoding='utf-8') as f:
         html_content = f.read()
         
-    # 我们需要替换 summaryData, dates, trendData
     # 替换 summaryData
-    summary_json = json.dumps(summary_list, ensure_ascii=False, indent=12)
-    # 匹配 const summaryData = [ ... ]; 并替换
-    # 使用较强的正则或者简单查找替换
     start_tag = "const summaryData = ["
     end_tag = "];"
     start_idx = html_content.find(start_tag)
@@ -179,25 +174,18 @@ def main():
         html_content = html_content.replace(old_block, new_block)
         
     # 替换大屏里的大盘数据
-    # 计算新大盘平均使用率
     overall_mean = df['使用率'].mean()
     overall_mean_str = f"{overall_mean * 100:.1f}%"
-    print(f"大盘最新平均使用率: {overall_mean_str}")
+    print(f"新大盘平均使用率: {overall_mean_str}")
     
-    # 替换大盘使用率的 HTML
-    # <div class="text-3xl font-bold text-blue-400 mt-2">52.1%</div>
-    # 我们可以正则或者直接查找
     search_str = '大盘平均使用率</div>\n            <div class="text-3xl font-bold text-blue-400 mt-2">'
     start_idx = html_content.find(search_str)
     if start_idx != -1:
         val_start = start_idx + len(search_str)
         val_end = html_content.find("</div>", val_start)
-        old_val = html_content[val_start:val_end]
         html_content = html_content[:val_start] + overall_mean_str + html_content[val_end:]
         
     # 替换领头羊店铺的 HTML
-    # <div class="text-2xl font-bold text-emerald-400 mt-2 truncate">四个朋友麒麟店</div>
-    # <div class="text-slate-500 text-xs mt-1">平均使用率高居 <span class="text-emerald-400 font-semibold">83.8%</span></div>
     top_shop_name = summary_list[0]['name']
     top_shop_rate = f"{summary_list[0]['rate'] * 100:.1f}%"
     
@@ -218,12 +206,12 @@ def main():
     # 写回文件
     with open(html_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
-    print("dashboard.html 中的数据源已成功自动更新！")
+    print("dashboard.html 自动修正完成！")
     
     # 打印简短排行结果
     summary['平均总间数'] = summary['平均总间数'].round().astype(int)
     summary['平均使用间数'] = (summary['平均使用率'] * summary['平均总间数']).round().astype(int)
-    print("\n=== 最新店铺经营排行 ===")
+    print("\n=== 最新店铺经营排行 (已过滤07-20) ===")
     print(summary.to_string(index=False))
 
 if __name__ == "__main__":
