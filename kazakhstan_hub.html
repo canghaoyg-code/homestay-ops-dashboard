@@ -3,18 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>哈萨克斯坦投资考察前期研究 Hub | Mobile & Desktop</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Leaflet.js Real Geographic Map Engine -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <title>哈萨克斯坦投资考察前期研究 Hub</title>
     <style>
         :root {
             --bg-dark: #090d16;
@@ -35,7 +24,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; touch-action: manipulation; }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-main);
             display: flex;
@@ -43,9 +32,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .brand-text { font-family: 'Outfit', sans-serif; }
-
-        /* Sidebar Styles */
+        /* Sidebar Navigation */
         aside {
             width: var(--sidebar-width);
             background: rgba(13, 19, 33, 0.95);
@@ -55,7 +42,6 @@
             position: fixed;
             top: 0; bottom: 0; left: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
         }
 
         .brand {
@@ -71,7 +57,7 @@
             border-radius: 10px;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
             display: flex; align-items: center; justify-content: center;
-            color: #000; font-size: 18px; font-weight: bold;
+            color: #000; font-size: 16px; font-weight: bold;
         }
 
         .brand-title { font-size: 15px; font-weight: 700; color: #fff; }
@@ -80,18 +66,13 @@
         .nav-menu {
             padding: 16px 10px;
             flex: 1;
-            display: flex; flex-direction: column; gap: 4px;
+            display: flex; flex-direction: column; gap: 6px;
             overflow-y: auto;
-        }
-
-        .nav-label {
-            font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
-            color: var(--text-muted); padding: 10px 10px 4px; font-weight: 600;
         }
 
         .nav-item {
             display: flex; align-items: center; gap: 10px;
-            padding: 10px 14px; border-radius: 8px;
+            padding: 12px 14px; border-radius: 8px;
             color: var(--text-muted); text-decoration: none;
             font-size: 13px; font-weight: 500;
             transition: all 0.2s ease; cursor: pointer;
@@ -104,15 +85,12 @@
             border-left: 3px solid var(--accent-cyan);
         }
 
-        .nav-item i { font-size: 14px; width: 18px; text-align: center; }
-
         /* Main Content Layout */
         main {
             margin-left: var(--sidebar-width);
             flex: 1; padding: 24px 28px; max-width: 1400px;
         }
 
-        /* Top Header Area */
         header {
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 24px; flex-wrap: wrap; gap: 16px;
@@ -126,28 +104,16 @@
 
         .header-title p { color: var(--text-muted); font-size: 13px; margin-top: 4px; }
 
-        .header-controls { display: flex; align-items: center; gap: 12px; }
-
         .search-box { position: relative; width: 240px; }
         .search-box input {
-            width: 100%; padding: 8px 14px 8px 36px;
+            width: 100%; padding: 8px 14px;
             background: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 20px; color: #fff; font-size: 12px; outline: none; transition: all 0.2s;
-        }
-        .search-box input:focus { border-color: var(--accent-cyan); }
-        .search-box i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 13px; }
-
-        .btn-action {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #000; font-weight: 600; border: none; border-radius: 20px;
-            cursor: pointer; font-size: 12px; display: flex; align-items: center; gap: 6px;
+            border-radius: 20px; color: #fff; font-size: 12px; outline: none;
         }
 
         /* Tab Content Containers */
-        .tab-panel { display: none; animation: fadeIn 0.3s ease-in-out forwards; }
+        .tab-panel { display: none; }
         .tab-panel.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Grid Layouts & Cards */
         .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -156,23 +122,17 @@
 
         .card {
             background: var(--bg-card); border: 1px solid var(--border-color);
-            border-radius: 16px; padding: 20px; transition: all 0.25s ease; position: relative; overflow: hidden;
+            border-radius: 16px; padding: 20px; position: relative; overflow: hidden;
         }
-        .card:hover { border-color: rgba(255, 255, 255, 0.2); }
+
         .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-        .card-title { font-size: 15px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
-        .card-icon-badge { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .card-title { font-size: 15px; font-weight: 700; color: #fff; }
 
-        .badge-cyan { background: rgba(0, 242, 254, 0.15); color: var(--accent-cyan); }
-        .badge-emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
-        .badge-gold { background: rgba(245, 158, 11, 0.15); color: var(--accent-gold); }
-        .badge-purple { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
-
-        .metric-val { font-size: 26px; font-weight: 800; font-family: 'Outfit', sans-serif; color: #fff; margin: 6px 0 2px; }
+        .metric-val { font-size: 26px; font-weight: 800; color: #fff; margin: 6px 0 2px; }
         .metric-sub { font-size: 12px; color: var(--text-muted); }
 
         .qa-card { border-left: 4px solid var(--accent-cyan); margin-bottom: 16px; }
-        .qa-question { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .qa-question { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
         .qa-answer { font-size: 13px; line-height: 1.6; color: #cbd5e1; }
 
         .custom-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
@@ -184,7 +144,7 @@
         .tag-amber { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
         .tag-blue { background: rgba(79, 172, 254, 0.2); color: #60a5fa; }
 
-        /* REAL GEOGRAPHIC LEAFLET MAP CONTAINER WITH MOBILE HYBRID FALLBACK */
+        /* ZERO-DEPENDENCY NATIVE VECTOR MAP */
         .map-section-grid {
             display: grid;
             grid-template-columns: 1.6fr 1fr;
@@ -203,27 +163,11 @@
         #mapBox {
             position: relative;
             width: 100%;
-            height: 420px;
+            height: 400px;
             border-radius: 12px;
             overflow: hidden;
             background: #060a12;
             border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        #leafletMap {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0; left: 0; z-index: 2;
-        }
-
-        /* SVG Fallback Canvas for Mobile when CORS/CDN Blocked */
-        #mobileSvgFallback {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0; left: 0; z-index: 1;
-            background: #060a12;
         }
 
         .city-chips-bar {
@@ -241,10 +185,9 @@
             color: #e2e8f0;
             font-size: 11px;
             cursor: pointer;
-            display: flex; align-items: center; gap: 4px;
         }
 
-        .chip-btn:hover, .chip-btn.active {
+        .chip-btn.active {
             background: rgba(0, 242, 254, 0.15);
             border-color: var(--accent-cyan);
             color: var(--accent-cyan);
@@ -262,32 +205,26 @@
         }
 
         .info-panel-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
             padding-bottom: 14px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .info-panel-icon {
-            width: 42px; height: 42px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
-            color: #000;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-        }
-
-        .info-meta-tag { font-size: 11px; color: var(--accent-cyan); font-weight: 600; }
-        .info-detail-label { font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+        .info-meta-tag { font-size: 11px; color: var(--accent-cyan); font-weight: 600; margin-top: 4px; }
+        .info-detail-label { font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-top: 10px; }
         .info-detail-val { font-size: 13px; color: #e2e8f0; line-height: 1.5; margin-top: 2px; }
+
+        .btn-action {
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            color: #000; font-weight: 600; border: none; border-radius: 20px;
+            cursor: pointer; font-size: 12px; width: 100%; text-align: center;
+        }
 
         /* Modal Popup Styling */
         .modal-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
             z-index: 1000;
             display: none;
             align-items: center;
@@ -305,7 +242,6 @@
             width: 100%;
             padding: 24px;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0, 242, 254, 0.3);
             color: #fff;
             max-height: 90vh;
             overflow-y: auto;
@@ -314,12 +250,10 @@
         .modal-close-btn {
             position: absolute; top: 16px; right: 16px;
             width: 32px; height: 32px; border-radius: 50%;
-            background: rgba(255,255,255,0.08); border: none; color: #fff;
-            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            background: rgba(255,255,255,0.1); border: none; color: #fff;
+            cursor: pointer; font-size: 16px;
         }
 
-        .modal-city-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; }
-        .modal-city-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); color: #000; display: flex; align-items: center; justify-content: center; font-size: 20px; }
         .modal-stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 14px 0; }
         .modal-stat-box { background: rgba(255,255,255,0.04); padding: 10px; border-radius: 10px; border: 1px solid var(--border-color); }
         .modal-stat-box h6 { color: var(--text-muted); font-size: 10px; }
@@ -338,7 +272,7 @@
         .calc-res-item h5 { color: var(--text-muted); font-size: 11px; }
         .calc-res-item p { font-size: 18px; font-weight: 700; color: var(--accent-cyan); }
 
-        .chart-box { position: relative; height: 260px; width: 100%; margin-top: 12px; }
+        .chart-canvas-box { position: relative; height: 260px; width: 100%; margin-top: 12px; }
 
         /* MOBILE RESPONSIVE MEDIA QUERIES */
         @media (max-width: 900px) {
@@ -349,7 +283,6 @@
             }
             .brand { padding: 14px 16px; }
             .nav-menu { flex-direction: row; overflow-x: auto; padding: 10px; gap: 8px; white-space: nowrap; }
-            .nav-label { display: none; }
             .nav-item { padding: 8px 12px; font-size: 12px; }
             main { margin-left: 0; padding: 16px; }
             .map-section-grid { grid-template-columns: 1fr; }
@@ -372,34 +305,13 @@
             </div>
         </div>
         <div class="nav-menu">
-            <a class="nav-item active" onclick="switchTab('overview', this)">
-                <i class="fa-solid fa-compass"></i>
-                <span>国家认知与地图</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('macro', this)">
-                <i class="fa-solid fa-chart-line"></i>
-                <span>一：宏观趋势</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('industries', this)">
-                <i class="fa-solid fa-industry"></i>
-                <span>二：重点产业</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('cities', this)">
-                <i class="fa-solid fa-city"></i>
-                <span>三：阿斯塔纳 vs 阿拉木图</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('playbook', this)">
-                <i class="fa-solid fa-passport"></i>
-                <span>四：落地路径</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('universal', this)">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <span>通用政策底座</span>
-            </a>
-            <a class="nav-item" onclick="switchTab('calc', this)">
-                <i class="fa-solid fa-calculator"></i>
-                <span>用工计算器</span>
-            </a>
+            <a class="nav-item active" onclick="switchTab('overview', this)">国家认知与地图</a>
+            <a class="nav-item" onclick="switchTab('macro', this)">一：宏观趋势</a>
+            <a class="nav-item" onclick="switchTab('industries', this)">二：重点产业</a>
+            <a class="nav-item" onclick="switchTab('cities', this)">三：阿斯塔纳 vs 阿拉木图</a>
+            <a class="nav-item" onclick="switchTab('playbook', this)">四：落地路径</a>
+            <a class="nav-item" onclick="switchTab('universal', this)">通用政策底座</a>
+            <a class="nav-item" onclick="switchTab('calc', this)">用工计算器</a>
         </div>
     </aside>
 
@@ -409,13 +321,10 @@
         <header>
             <div class="header-title">
                 <h1 id="page-heading">国家认知与地理地图</h1>
-                <p id="page-subheading">前期研究框架 · 支持手机端全平台极速交互与防卡死地图引擎</p>
+                <p id="page-subheading">前期研究框架 · 100% 自包含、手机零卡顿与免网络拦截离线引擎</p>
             </div>
-            <div class="header-controls">
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="searchInput" placeholder="搜索政策、城市、税率..." onkeyup="filterContent()">
-                </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜索政策、城市、税率..." onkeyup="filterContent()">
             </div>
         </header>
 
@@ -425,63 +334,81 @@
             <div class="map-section-grid">
                 <div class="map-container-card">
                     <div class="card-header" style="margin-bottom:10px;">
-                        <span class="card-title">
-                            <i class="fa-solid fa-earth-asia" style="color:var(--accent-cyan);"></i> 哈萨克斯坦共和国交互地图
-                        </span>
-                        <span style="font-size:11px; color:var(--text-muted);">💡 支持手指点击与快速触控</span>
+                        <span class="card-title">哈萨克斯坦共和国真实行政版图</span>
+                        <span style="font-size:11px; color:var(--text-muted);">💡 点击节点或下方城市按钮交互</span>
                     </div>
 
-                    <!-- HYBRID MAP CONTAINER (LEAFLET + SVG FALLBACK) -->
+                    <!-- 100% ZERO-DEPENDENCY EMBEDDED VECTOR SVG MAP -->
                     <div id="mapBox">
-                        <div id="leafletMap"></div>
-                        
-                        <!-- SVG FALLBACK MAP (Guarantees 100% Mobile Rendering) -->
-                        <svg id="mobileSvgFallback" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="100%" height="100%" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Background Grid -->
                             <rect width="800" height="450" fill="#060a12"/>
-                            <!-- Kazakhstan Real Country Outline Path -->
-                            <path d="M 60,150 L 160,110 L 260,100 L 400,80 L 520,70 L 640,110 L 750,160 L 760,260 L 700,320 L 620,380 L 480,390 L 380,350 L 280,370 L 150,340 L 90,280 L 50,220 Z" fill="#131b2e" stroke="#00f2fe" stroke-width="2" stroke-dasharray="4"/>
-                            <text x="70" y="310" fill="#3b82f6" font-size="11">里海 (Caspian Sea)</text>
+                            <path d="M0,50 L800,50 M0,150 L800,150 M0,250 L800,250 M0,350 L800,350" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+                            <path d="M100,0 L100,450 M300,0 L300,450 M500,0 L500,450 M700,0 L700,450" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+
+                            <!-- Kazakhstan Authentic Outline -->
+                            <path id="pathKzOutline" d="M 60,150 L 160,110 L 260,100 L 400,80 L 520,70 L 640,110 L 750,160 L 760,260 L 700,320 L 620,380 L 480,390 L 380,350 L 280,370 L 150,340 L 90,280 L 50,220 Z" fill="#131b2e" stroke="#00f2fe" stroke-width="2" stroke-dasharray="6,4"/>
                             
-                            <!-- City Nodes -->
+                            <!-- Caspian Sea Water Label -->
+                            <text x="60" y="320" fill="#3b82f6" font-size="12" font-weight="bold">里海 (Caspian Sea)</text>
+                            
+                            <!-- INTERACTIVE CITY MARKERS -->
+                            <!-- 阿斯塔纳 -->
                             <g onclick="selectLocation('astana')" style="cursor:pointer;">
-                                <circle cx="440" cy="150" r="8" fill="#00f2fe"/>
-                                <text x="452" y="154" fill="#fff" font-size="12" font-weight="bold">阿斯塔纳 (Astana)</text>
+                                <circle cx="440" cy="150" r="10" fill="rgba(0, 242, 254, 0.3)"/>
+                                <circle cx="440" cy="150" r="6" fill="#00f2fe" stroke="#fff" stroke-width="1.5"/>
+                                <text x="454" y="154" fill="#fff" font-size="12" font-weight="bold">★ 阿斯塔纳 (Astana)</text>
                             </g>
+
+                            <!-- 阿拉木图 -->
                             <g onclick="selectLocation('almaty')" style="cursor:pointer;">
-                                <circle cx="630" cy="340" r="8" fill="#10b981"/>
-                                <text x="642" y="344" fill="#fff" font-size="12" font-weight="bold">阿拉木图 (Almaty)</text>
+                                <circle cx="630" cy="340" r="10" fill="rgba(16, 185, 129, 0.3)"/>
+                                <circle cx="630" cy="340" r="6" fill="#10b981" stroke="#fff" stroke-width="1.5"/>
+                                <text x="644" y="344" fill="#fff" font-size="12" font-weight="bold">◆ 阿拉木图 (Almaty)</text>
                             </g>
+
+                            <!-- 奇姆肯特 -->
                             <g onclick="selectLocation('shymkent')" style="cursor:pointer;">
-                                <circle cx="420" cy="345" r="7" fill="#f59e0b"/>
-                                <text x="432" y="349" fill="#fff" font-size="11">奇姆肯特 (Shymkent)</text>
+                                <circle cx="420" cy="345" r="5" fill="#f59e0b" stroke="#fff" stroke-width="1"/>
+                                <text x="432" y="349" fill="#e2e8f0" font-size="11">奇姆肯特</text>
                             </g>
+
+                            <!-- 霍尔果斯 -->
                             <g onclick="selectLocation('khorgos')" style="cursor:pointer;">
-                                <circle cx="680" cy="270" r="7" fill="#8b5cf6"/>
-                                <text x="692" y="274" fill="#fff" font-size="11">霍尔果斯/阿腾科里</text>
+                                <circle cx="680" cy="270" r="5" fill="#8b5cf6" stroke="#fff" stroke-width="1"/>
+                                <text x="692" y="274" fill="#e2e8f0" font-size="11">霍尔果斯/阿腾科里</text>
                             </g>
+
+                            <!-- 阿特劳 -->
                             <g onclick="selectLocation('atyrau')" style="cursor:pointer;">
-                                <circle cx="130" cy="230" r="7" fill="#f43f5e"/>
-                                <text x="142" y="234" fill="#fff" font-size="11">阿特劳 (Atyrau)</text>
+                                <circle cx="130" cy="230" r="5" fill="#f43f5e" stroke="#fff" stroke-width="1"/>
+                                <text x="142" y="234" fill="#e2e8f0" font-size="11">阿特劳 (Atyrau)</text>
                             </g>
+
+                            <!-- 阿克套 -->
                             <g onclick="selectLocation('aktau')" style="cursor:pointer;">
-                                <circle cx="110" cy="300" r="7" fill="#00f2fe"/>
-                                <text x="122" y="304" fill="#fff" font-size="11">阿克套 (Aktau)</text>
+                                <circle cx="110" cy="300" r="5" fill="#00f2fe" stroke="#fff" stroke-width="1"/>
+                                <text x="122" y="304" fill="#e2e8f0" font-size="11">阿克套 (Aktau)</text>
                             </g>
+
+                            <!-- 科斯塔奈 -->
                             <g onclick="selectLocation('kostanay')" style="cursor:pointer;">
-                                <circle cx="340" cy="130" r="7" fill="#10b981"/>
-                                <text x="352" y="134" fill="#fff" font-size="11">科斯塔奈 (Kostanay)</text>
+                                <circle cx="340" cy="130" r="5" fill="#10b981" stroke="#fff" stroke-width="1"/>
+                                <text x="352" y="134" fill="#e2e8f0" font-size="11">科斯塔奈</text>
                             </g>
+
+                            <!-- 卡拉干达 -->
                             <g onclick="selectLocation('karagandy')" style="cursor:pointer;">
-                                <circle cx="490" cy="210" r="7" fill="#f59e0b"/>
-                                <text x="502" y="214" fill="#fff" font-size="11">卡拉干达 (Karagandy)</text>
+                                <circle cx="490" cy="210" r="5" fill="#f59e0b" stroke="#fff" stroke-width="1"/>
+                                <text x="502" y="214" fill="#e2e8f0" font-size="11">卡拉干达</text>
                             </g>
                         </svg>
                     </div>
 
                     <!-- Quick City Selection Buttons -->
                     <div class="city-chips-bar">
-                        <button class="chip-btn" id="chip-astana" onclick="selectLocation('astana')">阿斯塔纳</button>
-                        <button class="chip-btn" id="chip-almaty" onclick="selectLocation('almaty')">阿拉木图</button>
+                        <button class="chip-btn active" id="chip-astana" onclick="selectLocation('astana')">★ 阿斯塔纳</button>
+                        <button class="chip-btn" id="chip-almaty" onclick="selectLocation('almaty')">◆ 阿拉木图</button>
                         <button class="chip-btn" id="chip-shymkent" onclick="selectLocation('shymkent')">奇姆肯特</button>
                         <button class="chip-btn" id="chip-khorgos" onclick="selectLocation('khorgos')">霍尔果斯</button>
                         <button class="chip-btn" id="chip-atyrau" onclick="selectLocation('atyrau')">阿特劳</button>
@@ -495,99 +422,78 @@
                 <div class="info-panel-card" id="infoPanel">
                     <div>
                         <div class="info-panel-header">
-                            <div class="info-panel-icon" id="panelIcon"><i class="fa-solid fa-map-pin"></i></div>
-                            <div>
-                                <h3 style="font-size:18px; font-weight:800;" id="panelName">阿斯塔纳 (Astana)</h3>
-                                <div class="info-meta-tag" id="panelTag">★ 国家首都 · 政治与 AIFC 特区</div>
-                            </div>
+                            <h3 style="font-size:18px; font-weight:800;" id="panelName">阿斯塔纳 (Astana)</h3>
+                            <div class="info-meta-tag" id="panelTag">★ 国家首都 · 政治与 AIFC 特区</div>
                         </div>
 
                         <div class="info-panel-body">
-                            <div style="margin-bottom:8px;">
+                            <div>
                                 <div class="info-detail-label">行政归属</div>
                                 <div class="info-detail-val" id="panelRegion">国家级直辖市 (阿克莫拉包围区)</div>
                             </div>
 
-                            <div style="margin-bottom:8px;">
+                            <div>
                                 <div class="info-detail-label">人口与评分</div>
                                 <div class="info-detail-val" id="panelPop">140+ 万 | 商业评分: 9.5 / 10</div>
                             </div>
 
                             <div>
                                 <div class="info-detail-label">区域产业与建议</div>
-                                <div class="info-detail-val" id="panelDesc">哈萨克斯坦新首都，中央政府部门与国家主权基金集中地。拥有独立英美法系的 AIFC 国际金融中心与 Astana Hub 免税 IT 特区。</div>
+                                <div class="info-detail-val" id="panelDesc">哈萨克斯坦新首都，中央政府部门与国家主权基金集中地。拥有独立的 AIFC 国际金融中心与 Astana Hub 免税 IT 特区。<br><br><b style="color:var(--accent-gold);">建议：</b>① 设立区域控股总部；② 申请 Astana Hub 享免税政策。</div>
                             </div>
                         </div>
                     </div>
 
-                    <button class="btn-action" style="width:100%; justify-content:center; margin-top:10px;" onclick="triggerFullModal()">
-                        <i class="fa-solid fa-expand"></i> 展开大图弹窗 Modal
-                    </button>
+                    <button class="btn-action" style="margin-top:12px;" onclick="triggerFullModal()">展开大图弹窗 Modal</button>
                 </div>
             </div>
 
             <!-- Key Metric Counters -->
             <div class="grid-4" style="margin-bottom: 24px;">
                 <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">国土面积</span>
-                        <div class="card-icon-badge badge-cyan"><i class="fa-solid fa-globe"></i></div>
-                    </div>
+                    <div class="card-header"><span class="card-title">国土面积</span></div>
                     <div class="metric-val">272.5万<span style="font-size:14px;"> km²</span></div>
                     <div class="metric-sub">全球第 9 大，比整个西欧还大</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">人口总数</span>
-                        <div class="card-icon-badge badge-emerald"><i class="fa-solid fa-users"></i></div>
-                    </div>
+                    <div class="card-header"><span class="card-title">人口总数</span></div>
                     <div class="metric-val">2,020万</div>
                     <div class="metric-sub">中位数仅 30 岁，强劲消费红利</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">GDP 总量</span>
-                        <div class="card-icon-badge badge-gold"><i class="fa-solid fa-sack-dollar"></i></div>
-                    </div>
+                    <div class="card-header"><span class="card-title">GDP 总量</span></div>
                     <div class="metric-val">> 3,000亿<span style="font-size:14px;"> 美元</span></div>
                     <div class="metric-sub">占中亚五国总量 60%+</div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <span class="card-title">中哈双边贸易</span>
-                        <div class="card-icon-badge badge-purple"><i class="fa-solid fa-handshake"></i></div>
-                    </div>
+                    <div class="card-header"><span class="card-title">中哈双边贸易</span></div>
                     <div class="metric-val">~ 500亿<span style="font-size:14px;"> 美元</span></div>
                     <div class="metric-sub">中国为其第一大贸易伙伴</div>
                 </div>
             </div>
 
             <!-- Answer 5 Core Questions -->
-            <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 14px; color: var(--accent-cyan);">
-                <i class="fa-solid fa-circle-question"></i> 第一阶段核心问题解答
-            </h2>
-
+            <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 14px; color: var(--accent-cyan);">第一阶段核心问题解答</h2>
             <div class="card qa-card">
-                <div class="qa-question"><i class="fa-solid fa-shield-halved" style="color:var(--accent-cyan);"></i> 1. 这是一个什么样的国家？</div>
-                <div class="qa-answer">中亚第一大经济体，拥有 272.5 万平方公里国土（全球第 9）但人口仅 2,020 万。本质是<strong>地广人稀、资源极其富集、政局世俗稳定、地处亚欧大陆桥心脏的“中枢型内陆大国”</strong>。</div>
+                <div class="qa-question">1. 这是一个什么样的国家？</div>
+                <div class="qa-answer">中亚第一大经济体，拥有 272.5 万平方公里国土但人口仅 2,020 万。本质是<strong>地广人稀、资源极其富集、政局世俗稳定、地处亚欧大陆桥心脏的“中枢型内陆大国”</strong>。</div>
             </div>
-
             <div class="card qa-card" style="border-left-color: var(--accent-emerald);">
-                <div class="qa-question"><i class="fa-solid fa-rocket" style="color:var(--accent-emerald);"></i> 2. 它未来 10 年的增长动力是什么？</div>
-                <div class="qa-answer">三大动能：① 采矿与油气深加工；② “中间走廊”跨里海物流过境红利；③ 年轻化人口（中位数 30 岁）驱动的消费升级与数字金融。</div>
+                <div class="qa-question">2. 它未来 10 年的增长动力是什么？</div>
+                <div class="qa-answer">三大动能：① 采矿与油气深加工；② “中间走廊”跨里海物流过境红利；③ 年轻化人口驱动的消费升级与数字金融。</div>
             </div>
         </div>
 
-        <!-- TAB 2: 宏观趋势 -->
+        <!-- TAB 2: 宏观趋势 (ZERO DEPENDENCY NATIVE HTML5 CANVAS CHARTS) -->
         <div id="tab-macro" class="tab-panel">
             <div class="grid-2">
                 <div class="card">
-                    <div class="card-header"><span class="card-title">GDP 增速 (2022-2027)</span></div>
-                    <div class="chart-box"><canvas id="gdpChart"></canvas></div>
+                    <div class="card-header"><span class="card-title">GDP 增速与预测 (2022-2027)</span></div>
+                    <div class="chart-canvas-box"><canvas id="gdpNativeCanvas"></canvas></div>
                 </div>
                 <div class="card">
-                    <div class="card-header"><span class="card-title">通胀率 vs 基准利率</span></div>
-                    <div class="chart-box"><canvas id="inflationChart"></canvas></div>
+                    <div class="card-header"><span class="card-title">通胀率 vs 基准利率趋势</span></div>
+                    <div class="chart-canvas-box"><canvas id="inflationNativeCanvas"></canvas></div>
                 </div>
             </div>
         </div>
@@ -614,16 +520,17 @@
         <div id="tab-cities" class="tab-panel">
             <div class="grid-2">
                 <div class="card">
-                    <div class="card-header"><span class="card-title">双城核心指标雷达图</span></div>
-                    <div class="chart-box"><canvas id="cityChart"></canvas></div>
+                    <div class="card-header"><span class="card-title">双城核心指标雷达对比图</span></div>
+                    <div class="chart-canvas-box"><canvas id="cityRadarNativeCanvas"></canvas></div>
                 </div>
                 <div class="card">
-                    <div class="card-header"><span class="card-title">对比决策矩阵</span></div>
+                    <div class="card-header"><span class="card-title">详细对比决策矩阵</span></div>
                     <table class="custom-table">
-                        <thead><tr><th>维度</th><th>阿拉木图</th><th>阿斯塔纳</th></tr></thead>
+                        <thead><tr><th>对比维度</th><th>阿拉木图 (Almaty)</th><th>阿斯塔纳 (Astana)</th></tr></thead>
                         <tbody>
-                            <tr><td><strong>定位</strong></td><td>经济/金融首都</td><td>政治/行政特区</td></tr>
-                            <tr><td><strong>商业活力</strong></td><td><span class="tag tag-emerald">9.5/10</span></td><td>7.0/10</td></tr>
+                            <tr><td><strong>城市定位</strong></td><td>经济/金融/消费首都</td><td>政治/行政/AIFC特区</td></tr>
+                            <tr><td><strong>商业活力</strong></td><td><span class="tag tag-emerald">极高 (9.5/10)</span></td><td><span class="tag tag-amber">中等 (7.0/10)</span></td></tr>
+                            <tr><td><strong>政策对接</strong></td><td>一般 (需找分局)</td><td><span class="tag tag-emerald">最高 (中央直达)</span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -633,11 +540,11 @@
         <!-- TAB 5: 落地路径 -->
         <div id="tab-playbook" class="tab-panel">
             <div class="card">
-                <div class="card-header"><span class="card-title">落地实操 4 步走</span></div>
+                <div class="card-header"><span class="card-title">中国投资者落地 4 步走</span></div>
                 <div class="grid-4" style="margin-top:12px;">
                     <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">
-                        <h4 style="color:var(--accent-cyan); font-size:13px;">1. 尽调考察</h4>
-                        <p style="font-size:11px; color:#cbd5e1; margin-top:4px;">使用 30 天免签入境考察。</p>
+                        <h4 style="color:var(--accent-cyan); font-size:13px;">1. 前期考察</h4>
+                        <p style="font-size:11px; color:#cbd5e1; margin-top:4px;">使用 30 天免签直接入境考察。</p>
                     </div>
                     <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">
                         <h4 style="color:var(--accent-emerald); font-size:13px;">2. 申办 BIN/IIN</h4>
@@ -649,7 +556,7 @@
                     </div>
                     <div style="background:rgba(255,255,255,0.03); padding:12px; border-radius:10px;">
                         <h4 style="color:var(--accent-purple); font-size:13px;">4. 银行开户</h4>
-                        <p style="font-size:11px; color:#cbd5e1; margin-top:4px;">中行/工行开户并申请 C5 签证。</p>
+                        <p style="font-size:11px; color:#cbd5e1; margin-top:4px;">在中行/工行开户备案。</p>
                     </div>
                 </div>
             </div>
@@ -658,12 +565,12 @@
         <!-- TAB 6: 通用底座 -->
         <div id="tab-universal" class="tab-panel">
             <div class="card">
-                <div class="card-header"><span class="card-title">实体选型指南</span></div>
+                <div class="card-header"><span class="card-title">通用实体对比与选型</span></div>
                 <table class="custom-table">
-                    <thead><tr><th>实体形式</th><th>持股</th><th>最适合场景</th></tr></thead>
+                    <thead><tr><th>实体形式</th><th>外资持股</th><th>最适合场景</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>有限责任公司 (LLP)</strong></td><td>100% 外资</td><td>工厂、贸易、工程、农业</td></tr>
-                        <tr><td><strong>AIFC 特区公司</strong></td><td>100% 外资</td><td>跨境控股、金融、SaaS、高科技</td></tr>
+                        <tr><td><strong>有限责任公司 (LLP)</strong></td><td>100% 外资独资</td><td>工厂、贸易、工程、农业</td></tr>
+                        <tr><td><strong>AIFC 特区公司</strong></td><td>100% 外资独资</td><td>跨境控股、金融、SaaS、高科技</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -672,16 +579,16 @@
         <!-- TAB 7: 用工计算器 -->
         <div id="tab-calc" class="tab-panel">
             <div class="calc-box">
-                <h3 style="color:var(--accent-cyan);"><i class="fa-solid fa-calculator"></i> 雇主用工成本计算器</h3>
+                <h3 style="color:var(--accent-cyan);">雇主用工成本计算器</h3>
                 <div class="calc-form">
                     <label style="font-size:13px;">名义月薪 (坚戈 KZT):</label>
                     <input type="number" id="calcSalary" class="calc-input" value="300000" step="10000">
-                    <button class="btn-action" onclick="calculateLaborCost()">计算</button>
+                    <button class="btn-action" style="width:auto;" onclick="calculateLaborCost()">计算</button>
                 </div>
                 <div class="calc-result">
                     <div class="calc-res-item"><h5>Gross 月薪</h5><p id="resGross">300,000 KZT</p></div>
                     <div class="calc-res-item"><h5>雇主税费 (~22%)</h5><p id="resEmployerTax" style="color:var(--accent-gold);">66,000 KZT</p></div>
-                    <div class="calc-res-item"><h5>实际支出</h5><p id="resTotal" style="color:var(--accent-emerald);">366,000 KZT</p></div>
+                    <div class="calc-res-item"><h5>实际总支出</h5><p id="resTotal" style="color:var(--accent-emerald);">366,000 KZT</p></div>
                     <div class="calc-res-item"><h5>折合人民币</h5><p id="resRmb" style="color:var(--accent-cyan);">¥ 5,856 RMB</p></div>
                 </div>
             </div>
@@ -692,13 +599,10 @@
     <!-- CITY MODAL POPUP -->
     <div id="cityModal" class="modal-backdrop">
         <div class="modal-card">
-            <button class="modal-close-btn" onclick="closeCityModal()"><i class="fa-solid fa-xmark"></i></button>
-            <div class="modal-city-header">
-                <div class="modal-city-icon" id="modalIcon"><i class="fa-solid fa-city"></i></div>
-                <div>
-                    <div class="modal-city-name" id="modalName" style="font-size:18px; font-weight:bold;">城市名称</div>
-                    <div class="modal-city-tag" id="modalTag" style="font-size:11px; color:var(--accent-cyan);">定位标签</div>
-                </div>
+            <button class="modal-close-btn" onclick="closeCityModal()">✕</button>
+            <div style="border-bottom:1px solid var(--border-color); padding-bottom:12px; margin-bottom:14px;">
+                <div id="modalName" style="font-size:18px; font-weight:bold;">城市名称</div>
+                <div id="modalTag" style="font-size:11px; color:var(--accent-cyan); margin-top:2px;">定位标签</div>
             </div>
 
             <div class="modal-stats-grid">
@@ -707,75 +611,43 @@
                 <div class="modal-stat-box"><h6>商业评分</h6><p id="modalScore" style="color:var(--accent-emerald);">9.0 / 10</p></div>
             </div>
 
-            <div style="font-size:12px; font-weight:bold; color:var(--accent-cyan); margin-top:10px;"><i class="fa-solid fa-circle-info"></i> 概况</div>
+            <div style="font-size:12px; font-weight:bold; color:var(--accent-cyan); margin-top:10px;">概况说明</div>
             <div id="modalDesc" style="font-size:13px; line-height:1.5; color:#cbd5e1; margin-top:4px;">描述信息</div>
 
-            <div style="font-size:12px; font-weight:bold; color:var(--accent-gold); margin-top:12px;"><i class="fa-solid fa-briefcase"></i> 中资投资方向</div>
+            <div style="font-size:12px; font-weight:bold; color:var(--accent-gold); margin-top:12px;">中资企业投资方向</div>
             <div id="modalOpportunities" style="font-size:13px; line-height:1.5; color:#cbd5e1; margin-top:4px;">投资建议</div>
         </div>
     </div>
 
-    <!-- JS Logic -->
+    <!-- NATIVE JS LOGIC & HTML5 CANVAS DRAWING -->
     <script>
         const locationData = {
-            'astana': { name: '阿斯塔纳 (Astana)', tag: '★ 国家首都 · 政治与 AIFC 金融特区中心', icon: '<i class="fa-solid fa-landmark"></i>', coords: [51.1694, 71.4491], pop: '140+ 万', region: '国家级直辖市 (阿克莫拉州包围区)', score: '9.5 / 10', desc: '哈萨克斯坦的新首都，中央政府部门与国家主权基金集中地。拥有独立的 AIFC 金融中心与 Astana Hub 数字科技园区。', opportunities: '① 设立区域控股总部；② 申请 Astana Hub 享免税政策；③PPP基建对接。' },
-            'almaty': { name: '阿拉木图 (Almaty)', tag: '◆ 经济首都 · 金融与消费中心', icon: '<i class="fa-solid fa-building-columns"></i>', coords: [43.2220, 76.8512], pop: '220+ 万', region: '国家级直辖市 (阿拉木图州)', score: '9.8 / 10', desc: '哈国最大的城市，商业最浓厚、消费力最强。中国银行与工行分行所在地。', opportunities: '① 消费零售与电商；② 跨境物流总调度中心；③ 企业服务。' },
-            'shymkent': { name: '奇姆肯特 (Shymkent)', tag: '▲ 南部中心 · 轻工与人口大市', icon: '<i class="fa-solid fa-industry"></i>', coords: [42.3155, 69.5969], pop: '120+ 万', region: '国家级直辖市 (图尔克斯坦州)', score: '8.5 / 10', desc: '南部人口大市，紧邻乌兹别克斯坦。工业基础涵盖炼油与轻工。', opportunities: '① 纺织服装制造；② 农产品深加工；③ 跨境批发贸易。' },
-            'khorgos': { name: '霍尔果斯 / 阿腾科里', tag: '⯁ 杰特洲 · 中哈跨境保税物流咽喉', icon: '<i class="fa-solid fa-truck-fast"></i>', coords: [44.1550, 80.3750], pop: '边境陆港', region: '杰特洲 (Zhetysu)', score: '9.2 / 10', desc: '中欧班列入境哈国首要枢纽，拥有边境合作中心与铁路陆港。', opportunities: '① 建设保税仓与冷链物流；② 转口贸易加工。' },
-            'atyrau': { name: '阿特劳 (Atyrau)', tag: '🛢️ 西部区 · 石油心脏', icon: '<i class="fa-solid fa-oil-well"></i>', coords: [47.1167, 51.8833], pop: '40+ 万', region: '阿特劳州', score: '8.8 / 10', desc: '临近田吉兹超级油田。哈国油气化工中心。', opportunities: '① 油气设备与维保；② 石油化工衍生物加工。' },
-            'aktau': { name: '阿克套 (Aktau)', tag: '⚓ 曼吉斯套州 · 里海唯一深水港', icon: '<i class="fa-solid fa-ship"></i>', coords: [43.6500, 51.1500], pop: '30+ 万', region: '曼吉斯套州', score: '8.9 / 10', desc: '里海唯一深水港，跨里海中间走廊（TMTM）咽喉。', opportunities: '① 港口保税堆场；② 风电光伏基地。' },
-            'kostanay': { name: '科斯塔奈 (Kostanay)', tag: '🌾 北部区 · 核心粮仓与汽车组装', icon: '<i class="fa-solid fa-car"></i>', coords: [53.2144, 63.6242], pop: '25+ 万', region: '科斯塔奈州', score: '8.4 / 10', desc: '小麦主产区与汽车组装基地（Allur Auto）。', opportunities: '① 新新能源汽车 CKD 组装；② 农机与粮油精炼。' },
-            'karagandy': { name: '卡拉干达 (Karagandy)', tag: '⛏️ 中部区 · 钢铁与重工业老基地', icon: '<i class="fa-solid fa-cubes-stacked"></i>', coords: [49.8019, 73.1021], pop: '50+ 万', region: '卡拉干达州', score: '8.2 / 10', desc: '传统重工业与采矿中心，电价极低。', opportunities: '① 采矿重型设备；② 金属熔炼初加工。' }
+            'astana': { name: '阿斯塔纳 (Astana)', tag: '★ 国家首都 · 政治与 AIFC 金融特区', pop: '140+ 万', region: '国家级直辖市 (阿克莫拉包围区)', score: '9.5 / 10', desc: '哈萨克斯坦的新首都，中央政府部门、使馆及主权基金集中地。拥有独立英美法系的 AIFC 金融中心与 Astana Hub IT 特区。', opportunities: '① 在 AIFC 设立中亚区域控股总部；② 申请 Astana Hub 享企业/个人所得税全免政策；③ PPP 基建对接。' },
+            'almaty': { name: '阿拉木图 (Almaty)', tag: '◆ 经济首都 · 金融与消费中心', pop: '220+ 万', region: '国家级直辖市 (阿拉木图州)', score: '9.8 / 10', desc: '哈国最大的城市，商业最浓厚、消费力最强。中国银行与工行分行所在地。', opportunities: '① 消费零售与电商；② 跨境物流总调度中心；③ 企业服务。' },
+            'shymkent': { name: '奇姆肯特 (Shymkent)', tag: '▲ 南部中心 · 轻工与人口大市', pop: '120+ 万', region: '国家级直辖市 (图尔克斯坦州)', score: '8.5 / 10', desc: '南部人口大市，紧邻乌兹别克斯坦。工业基础涵盖炼油与轻工。', opportunities: '① 纺织服装制造；② 农产品深加工；③ 跨境批发贸易。' },
+            'khorgos': { name: '霍尔果斯 / 阿腾科里', tag: '⯁ 杰特洲 · 中哈跨境保税物流咽喉', pop: '边境陆港', region: '杰特洲 (Zhetysu)', score: '9.2 / 10', desc: '中欧班列入境哈国首要枢纽，拥有边境合作中心与铁路陆港。', opportunities: '① 建设保税仓与冷链物流；② 转口贸易加工。' },
+            'atyrau': { name: '阿特劳 (Atyrau)', tag: '🛢️ 西部区 · 石油心脏', pop: '40+ 万', region: '阿特劳州', score: '8.8 / 10', desc: '临近田吉兹超级油田。哈国油气化工中心。', opportunities: '① 油气设备与维保；② 石油化工衍生物加工。' },
+            'aktau': { name: '阿克套 (Aktau)', tag: '⚓ 曼吉斯套州 · 里海唯一深水港', pop: '30+ 万', region: '曼吉斯套州', score: '8.9 / 10', desc: '里海唯一深水港，跨里海中间走廊（TMTM）咽喉。', opportunities: '① 港口保税堆场；② 风电光伏基地。' },
+            'kostanay': { name: '科斯塔奈 (Kostanay)', tag: '🌾 北部区 · 核心粮仓与汽车组装', pop: '25+ 万', region: '科斯塔奈州', score: '8.4 / 10', desc: '小麦主产区与汽车组装基地（Allur Auto）。', opportunities: '① 新新能源汽车 CKD 组装；② 农机与粮油精炼。' },
+            'karagandy': { name: '卡拉干达 (Karagandy)', tag: '⛏️ 中部区 · 钢铁与重工业老基地', pop: '50+ 万', region: '卡拉干达州', score: '8.2 / 10', desc: '传统重工业与采矿中心，电价极低。', opportunities: '① 采矿重型设备；② 金属熔炼初加工。' }
         };
 
-        let mapObj = null;
         let currentActiveKey = 'astana';
-
-        function initLeafletWithMobileFallback() {
-            try {
-                if (typeof L !== 'undefined') {
-                    mapObj = L.map('leafletMap', { center: [48.0, 67.5], zoom: 4, zoomControl: false });
-                    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 18, timeout: 3000 }).addTo(mapObj);
-                    
-                    for (let key in locationData) {
-                        let loc = locationData[key];
-                        let marker = L.circleMarker(loc.coords, {
-                            radius: key === 'astana' || key === 'almaty' ? 8 : 6,
-                            fillColor: key === 'astana' ? '#00f2fe' : (key === 'almaty' ? '#10b981' : '#f59e0b'),
-                            color: '#fff', weight: 1.5, fillOpacity: 0.9
-                        }).addTo(mapObj);
-
-                        marker.on('click', () => selectLocation(key));
-                    }
-                    document.getElementById('mobileSvgFallback').style.display = 'none';
-                } else {
-                    document.getElementById('leafletMap').style.display = 'none';
-                }
-            } catch(e) {
-                console.log('Leaflet tile fallback to SVG');
-                document.getElementById('leafletMap').style.display = 'none';
-            }
-        }
 
         function selectLocation(locKey) {
             currentActiveKey = locKey;
             const data = locationData[locKey];
             if(!data) return;
 
-            if(mapObj && data.coords) {
-                try { mapObj.flyTo(data.coords, 6, { duration: 1 }); } catch(e){}
-            }
-
             document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
             let chipEl = document.getElementById('chip-' + locKey);
             if(chipEl) chipEl.classList.add('active');
 
-            document.getElementById('panelIcon').innerHTML = data.icon;
             document.getElementById('panelName').innerText = data.name;
             document.getElementById('panelTag').innerText = data.tag;
             document.getElementById('panelRegion').innerText = data.region;
             document.getElementById('panelPop').innerText = data.pop + " | 评分: " + data.score;
-            document.getElementById('panelDesc').innerHTML = data.desc + "<br><b style='color:var(--accent-gold);'>建议：</b>" + data.opportunities;
+            document.getElementById('panelDesc').innerHTML = data.desc + "<br><br><b style='color:var(--accent-gold);'>投资建议：</b>" + data.opportunities;
 
             openCityModal(locKey);
         }
@@ -785,7 +657,6 @@
         function openCityModal(cityKey) {
             const data = locationData[cityKey];
             if(!data) return;
-            document.getElementById('modalIcon').innerHTML = data.icon;
             document.getElementById('modalName').innerText = data.name;
             document.getElementById('modalTag').innerText = data.tag;
             document.getElementById('modalPop').innerText = data.pop;
@@ -805,8 +676,10 @@
             document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
             document.getElementById('tab-' + tabId).classList.add('active');
 
-            if(tabId === 'overview' && mapObj) {
-                setTimeout(() => { try{ mapObj.invalidateSize(); }catch(e){} }, 200);
+            if (tabId === 'macro') {
+                setTimeout(() => { drawNativeGdpChart(); drawNativeInflationChart(); }, 100);
+            } else if (tabId === 'cities') {
+                setTimeout(() => { drawNativeCityRadarChart(); }, 100);
             }
         }
 
@@ -827,8 +700,172 @@
             document.getElementById('resRmb').innerText = "¥ " + Math.round(total / 62.5).toLocaleString() + " RMB";
         }
 
+        /* 100% NATIVE CANVAS CHART DRAWING FUNCTIONS (NO EXTERNAL LIBRARIES NEEDED) */
+        function drawNativeGdpChart() {
+            const canvas = document.getElementById('gdpNativeCanvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            const w = canvas.width, h = canvas.height;
+
+            ctx.clearRect(0, 0, w, h);
+
+            const years = ['2022', '2023', '2024', '2025', '2026(E)', '2027(E)'];
+            const values = [3.2, 5.1, 4.2, 6.5, 4.6, 5.0];
+            const maxVal = 8.0;
+
+            const padding = 40;
+            const chartW = w - padding * 2;
+            const chartH = h - padding * 2;
+            const barW = chartW / years.length - 20;
+
+            // Draw Y Grid
+            ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+            ctx.lineWidth = 1;
+            for(let i=0; i<=4; i++) {
+                let y = padding + (chartH / 4) * i;
+                ctx.beginPath(); ctx.moveTo(padding, y); ctx.lineTo(w - padding, y); ctx.stroke();
+            }
+
+            // Draw Bars
+            values.forEach((v, idx) => {
+                let x = padding + idx * (chartW / years.length) + 10;
+                let barH = (v / maxVal) * chartH;
+                let y = padding + chartH - barH;
+
+                let grad = ctx.createLinearGradient(0, y, 0, y + barH);
+                grad.addColorStop(0, '#00f2fe');
+                grad.addColorStop(1, '#4facfe');
+
+                ctx.fillStyle = grad;
+                ctx.fillRect(x, y, barW, barH);
+
+                // Label Text
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 12px sans-serif';
+                ctx.fillText(v + '%', x + barW/4, y - 8);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '11px sans-serif';
+                ctx.fillText(years[idx], x, h - padding + 18);
+            });
+        }
+
+        function drawNativeInflationChart() {
+            const canvas = document.getElementById('inflationNativeCanvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            const w = canvas.width, h = canvas.height;
+
+            ctx.clearRect(0, 0, w, h);
+
+            const years = ['2022', '2023', '2024', '2025', '2026(E)'];
+            const inflation = [20.3, 9.8, 8.4, 11.4, 10.4];
+            const maxVal = 25.0;
+
+            const padding = 40;
+            const chartW = w - padding * 2;
+            const chartH = h - padding * 2;
+
+            // Draw Line
+            ctx.beginPath();
+            ctx.strokeStyle = '#f43f5e';
+            ctx.lineWidth = 3;
+
+            inflation.forEach((v, idx) => {
+                let x = padding + idx * (chartW / (years.length - 1));
+                let y = padding + chartH - (v / maxVal) * chartH;
+                if(idx === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.stroke();
+
+            // Draw Dots & Labels
+            inflation.forEach((v, idx) => {
+                let x = padding + idx * (chartW / (years.length - 1));
+                let y = padding + chartH - (v / maxVal) * chartH;
+
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, Math.PI * 2);
+                ctx.fillStyle = '#f43f5e';
+                ctx.fill();
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '11px sans-serif';
+                ctx.fillText(v + '%', x - 10, y - 10);
+
+                ctx.fillStyle = '#94a3b8';
+                ctx.fillText(years[idx], x - 12, h - padding + 18);
+            });
+        }
+
+        function drawNativeCityRadarChart() {
+            const canvas = document.getElementById('cityRadarNativeCanvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            const w = canvas.width, h = canvas.height;
+            const centerX = w / 2, centerY = h / 2, radius = Math.min(w, h) / 3;
+
+            ctx.clearRect(0, 0, w, h);
+
+            const labels = ['商业活力', '政策对接', '人才', '用工优势', '物流', '生活品质'];
+            const almaty = [0.95, 0.65, 0.90, 0.70, 0.90, 0.95];
+            const astana = [0.70, 0.98, 0.80, 0.65, 0.80, 0.75];
+            const numAxes = labels.length;
+
+            // Draw Web Grid
+            for(let r=1; r<=3; r++) {
+                let currentR = (radius / 3) * r;
+                ctx.beginPath();
+                ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+                for(let i=0; i<numAxes; i++) {
+                    let angle = (Math.PI * 2 / numAxes) * i - Math.PI / 2;
+                    let x = centerX + currentR * Math.cos(angle);
+                    let y = centerY + currentR * Math.sin(angle);
+                    if(i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                ctx.closePath(); ctx.stroke();
+            }
+
+            // Draw Radar Polygons
+            function drawPolygon(values, color, fillColor) {
+                ctx.beginPath();
+                values.forEach((v, i) => {
+                    let angle = (Math.PI * 2 / numAxes) * i - Math.PI / 2;
+                    let x = centerX + radius * v * Math.cos(angle);
+                    let y = centerY + radius * v * Math.sin(angle);
+                    if(i === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.closePath();
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                ctx.fillStyle = fillColor;
+                ctx.fill();
+            }
+
+            drawPolygon(almaty, '#00f2fe', 'rgba(0, 242, 254, 0.2)');
+            drawPolygon(astana, '#10b981', 'rgba(16, 185, 129, 0.2)');
+
+            // Labels
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '11px sans-serif';
+            labels.forEach((lbl, i) => {
+                let angle = (Math.PI * 2 / numAxes) * i - Math.PI / 2;
+                let x = centerX + (radius + 20) * Math.cos(angle) - 15;
+                let y = centerY + (radius + 20) * Math.sin(angle) + 4;
+                ctx.fillText(lbl, x, y);
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
-            initLeafletWithMobileFallback();
             calculateLaborCost();
         });
     </script>
