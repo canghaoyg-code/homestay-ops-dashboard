@@ -1,0 +1,295 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-07-29",
+  "sources": [
+    {
+      "id": "bns-astana-region-2026-06",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Astana city — regional statistics",
+      "url": "https://stat.gov.kz/en/region/astana/",
+      "referencePeriod": "2026-06-01",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "bns-grp-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Gross regional product, January–December 2025",
+      "url": "https://stat.gov.kz/en/industries/economy/national-accounts/publications/483103/",
+      "referencePeriod": "2025-01-01/2025-12-31",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "bns-fixed-investment-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Investment in fixed capital, January–December 2025",
+      "url": "https://stat.gov.kz/en/industries/businessstatistics/stat-invest/publications/473281/",
+      "referencePeriod": "2025-01-01/2025-12-31",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "astana-city-passport-2026-01",
+      "publisher": "Akimat of Astana",
+      "title": "Socio-economic passport of Astana, January 2026",
+      "url": "https://www.gov.kz/memleket/entities/astana/documents/details/975994?lang=ru",
+      "referencePeriod": "2026-01-31",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "bns-almaty-region-2026-06",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Almaty city — regional statistics",
+      "url": "https://stat.gov.kz/en/region/almaty/",
+      "referencePeriod": "2026-06-01",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "bns-shymkent-region-2026-06",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Shymkent city — regional statistics",
+      "url": "https://stat.gov.kz/region/shymkent/",
+      "referencePeriod": "2026-06-01",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "kazakhstan-mfa-khorgos-2025",
+      "publisher": "Ministry of Foreign Affairs of the Republic of Kazakhstan",
+      "title": "Khorgos to Become a Hub for New Investment Projects",
+      "url": "https://www.gov.kz/memleket/entities/mfa/press/news/details/1048273?lang=en",
+      "referencePeriod": "2025-08-08",
+      "retrievedAt": "2026-07-29"
+    },
+    {
+      "id": "geoboundaries-kazakhstan-adm1-2017",
+      "publisher": "geoBoundaries / OpenStreetMap contributors",
+      "title": "Kazakhstan ADM1 simplified boundary dataset",
+      "url": "https://www.geoboundaries.org/api/current/gbOpen/KAZ/ADM1/",
+      "referencePeriod": "2017",
+      "retrievedAt": "2026-07-30",
+      "license": "Open Data Commons Open Database License (ODbL) 1.0"
+    },
+    {
+      "id": "gov-kz-about-2026",
+      "publisher": "Government of the Republic of Kazakhstan",
+      "title": "About Kazakhstan",
+      "url": "https://www.gov.kz/article/19305?lang=en",
+      "referencePeriod": "accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-population-2026-01",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Population by gender and type of locality, as of January 1, 2026",
+      "url": "https://stat.gov.kz/en/industries/socialtatistics/demography/publications/475783/",
+      "referencePeriod": "2026-01-01",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-admin-2026",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Administrative-territorial units of the Republic of Kazakhstan, as of January 1, 2026",
+      "url": "https://stat.gov.kz/en/industries/socialtatistics/demography/publications/476649/",
+      "referencePeriod": "2026-01-01",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-gdp-flash-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "GDP by method of production, January–December 2025 (flash estimates)",
+      "url": "https://stat.gov.kz/en/industries/economy/national-accounts/publications/475965/",
+      "referencePeriod": "2025-01-01/2025-12-31",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-inflation-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Inflation in the Republic of Kazakhstan, December 2025",
+      "url": "https://stat.gov.kz/en/news/inflatioon-in-the-republic-of-kazakhstan/",
+      "referencePeriod": "2025-12",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "imf-article-iv-2026",
+      "publisher": "International Monetary Fund",
+      "title": "Republic of Kazakhstan: 2025 Article IV Consultation",
+      "url": "https://www.imf.org/en/news/articles/2026/01/27/pr-26021-kazakhstan-imf-executive-board-concludes-2025-article-iv-consultation",
+      "referencePeriod": "2026 forecast / 2025 assessment",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "aifc-constitutional-law",
+      "publisher": "Adilet Legal Information System of the Republic of Kazakhstan",
+      "title": "Constitutional Law on the Astana International Financial Centre",
+      "url": "https://adilet.zan.kz/eng/docs/Z1500000438",
+      "referencePeriod": "current law accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "gov-kz-investments-2026",
+      "publisher": "Government of the Republic of Kazakhstan",
+      "title": "Investments in Kazakhstan",
+      "url": "https://www.gov.kz/article/64601?lang=en",
+      "referencePeriod": "accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kazakh-invest-sez-2026",
+      "publisher": "NC KAZAKH INVEST JSC",
+      "title": "Special Economic Zones",
+      "url": "https://invest.gov.kz/doing-business-here/fez-and/the-list-of-sez-and/",
+      "referencePeriod": "accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kazakh-invest-portal-2026",
+      "publisher": "NC KAZAKH INVEST JSC",
+      "title": "National investment promotion portal",
+      "url": "https://invest.gov.kz/",
+      "referencePeriod": "accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "wto-kazakhstan-member-2015",
+      "publisher": "World Trade Organization",
+      "title": "Kazakhstan and the WTO — Member information",
+      "url": "https://www.wto.org/english/thewto_e/countries_e/kazakhstan_e.htm",
+      "referencePeriod": "membership since 2015-11-30",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "nbk-base-rate-2026-07",
+      "publisher": "National Bank of Kazakhstan",
+      "title": "The base rate reduced to 16.75%",
+      "url": "https://nationalbank.kz/en/news/press-relizy/19982",
+      "referencePeriod": "2026-07-24",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "nbk-reserves-2026-06",
+      "publisher": "National Bank of Kazakhstan",
+      "title": "International reserves and foreign currency assets of the National Fund",
+      "url": "https://nationalbank.kz/en/international-reserve-and-asset/mezhdunarodnye-rezervy-i-aktivy-nacionalnogo-fonda-rk",
+      "referencePeriod": "2026-06",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "nbk-fdi-2026-q1",
+      "publisher": "National Bank of Kazakhstan",
+      "title": "Direct Investments according to the directional principle",
+      "url": "https://nationalbank.kz/en/news/pryamye-investicii-po-napravleniyu-vlozheniya",
+      "referencePeriod": "2026-Q1",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "nbk-external-debt-2026-q1",
+      "publisher": "National Bank of Kazakhstan",
+      "title": "Kazakhstan: Balance of Payments and External Debt",
+      "url": "https://nationalbank.kz/file/download/125765",
+      "referencePeriod": "2026-01-01",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-fixed-capital-investment-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Investment in fixed capital in the Republic of Kazakhstan, 2025",
+      "url": "https://stat.gov.kz/ru/industries/business-statistics/stat-invest/publications/506328/",
+      "referencePeriod": "2025-01-01/2025-12-31",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kgd-cit-2026",
+      "publisher": "State Revenue Committee of the Ministry of Finance of Kazakhstan",
+      "title": "Corporate Income Tax",
+      "url": "https://www.gov.kz/memleket/entities/kgd-kyzylorda/documents/details/1025850?lang=en",
+      "referencePeriod": "2026 tax year",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kgd-vat-2026",
+      "publisher": "Government of the Republic of Kazakhstan",
+      "title": "Registration and Value Added Tax (VAT)",
+      "url": "https://www.gov.kz/situations/817/intro?lang=en",
+      "referencePeriod": "effective 2026-01-01",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kgd-nonresident-dividends-2026",
+      "publisher": "Government of the Republic of Kazakhstan",
+      "title": "Tax frequently asked questions — non-resident dividends",
+      "url": "https://www.gov.kz/situations/811/intro?lang=en",
+      "referencePeriod": "2026 tax year",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "fatf-kazakhstan-2023",
+      "publisher": "Financial Action Task Force / Eurasian Group",
+      "title": "Mutual Evaluation of Kazakhstan",
+      "url": "https://www.fatf-gafi.org/en/publications/Mutualevaluations/Mutualevaluationofkazakhstan.html",
+      "referencePeriod": "2023 evaluation",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "oecd-competition-2025",
+      "publisher": "Organisation for Economic Co-operation and Development",
+      "title": "OECD Peer Reviews of Competition Law and Policy: Kazakhstan 2025",
+      "url": "https://www.oecd.org/en/publications/oecd-peer-reviews-of-competition-law-and-policy-kazakhstan-2025_b7659978-en.html",
+      "referencePeriod": "2025",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "worldbank-lpi-2023",
+      "publisher": "World Bank",
+      "title": "Logistics Performance Index 2023",
+      "url": "https://www.worldbank.org/en/news/press-release/2023/04/21/world-bank-releases-logistics-performance-index-2023",
+      "referencePeriod": "2023",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-migration-2025",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Migration of the population of the Republic of Kazakhstan, January–December 2025",
+      "url": "https://stat.gov.kz/en/industries/socialstatistics/demography/publications/475064/",
+      "referencePeriod": "2025-01-01/2025-12-31",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "bns-entities-2026-06",
+      "publisher": "Bureau of National Statistics of the Republic of Kazakhstan",
+      "title": "Main indicators of the number of entities in the Republic of Kazakhstan",
+      "url": "https://stat.gov.kz/en/industries/business-statistics/stat-org/publications/503269/",
+      "referencePeriod": "2026-06-01",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "kazakh-invest-astana-china-park-2024",
+      "publisher": "NC KAZAKH INVEST JSC",
+      "title": "Chinese Company to Build Trade and Industrial Park in Astana",
+      "url": "https://invest.gov.kz/media-center/press-releases/kitayskaya-kompaniya-postroit-torgovo-promyshlennyy-park-v-astane-/",
+      "referencePeriod": "2024-08-23",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "mangystau-aktau-ccgt-2026",
+      "publisher": "Invest in Mangystau region / NC KAZAKH INVEST",
+      "title": "A 160 MW combined-cycle gas turbine will be built in Aktau",
+      "url": "https://mangystau.invest.gov.kz/media-center/press-releases/v-aktau-postroyat-parogazovuyu-ustanovku-moshchnostyu-160-mvt/",
+      "referencePeriod": "2026-03-19",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "shymkent-alsera-2025",
+      "publisher": "Invest in Shymkent / NC KAZAKH INVEST",
+      "title": "Turkish company to build a greenhouse complex in Shymkent",
+      "url": "https://shymkent.invest.gov.kz/kz/media-center/press-releases/turkish-company-to-build-a-greenhouse-complex-in-shymkent/",
+      "referencePeriod": "2025-01-27",
+      "retrievedAt": "2026-07-30"
+    },
+    {
+      "id": "khorgos-sez-2025",
+      "publisher": "Akimat of Zhetysu Region",
+      "title": "Khorgos – Eastern Gates SEZ project update",
+      "url": "https://www.gov.kz/memleket/entities/zhetysu-oblysy/press/news/details/971177?lang=ru",
+      "referencePeriod": "official update accessed 2026-07",
+      "retrievedAt": "2026-07-30"
+    }
+  ]
+}
