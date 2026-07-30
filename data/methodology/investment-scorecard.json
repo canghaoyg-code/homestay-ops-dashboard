@@ -1,0 +1,21 @@
+{
+  "id": "kz-city-investment-scorecard",
+  "version": "1.0.0",
+  "updatedAt": "2026-07-29",
+  "purpose": "Screening tool for prioritising research and fieldwork. It is not a return forecast or investment recommendation.",
+  "opportunityWeights": {
+    "market": 0.3,
+    "sectorFit": 0.25,
+    "logistics": 0.2,
+    "policyAccess": 0.15,
+    "talent": 0.1
+  },
+  "riskAdjustments": {
+    "roiAbove30": 20,
+    "roiAbove20": 8,
+    "capitalAbove1000": 10,
+    "soloOwnership": 8,
+    "localJointVenture": -4
+  },
+  "disclosure": "Scores are structured internal research judgements. They must be validated with project-level legal, tax, commercial and technical due diligence before capital is committed."
+}
