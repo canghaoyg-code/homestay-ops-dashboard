@@ -1,0 +1,54 @@
+{
+  "id": "astana",
+  "country": "kazakhstan",
+  "name": { "zh": "阿斯塔纳", "en": "Astana" },
+  "positioning": "国家首都；政策、总部经济与区域金融服务的决策节点",
+  "asOf": "2026-06-01",
+  "indicators": {
+    "population": {
+      "value": 1674699,
+      "unit": "people",
+      "sourceId": "bns-astana-region-2026-06"
+    },
+    "grossRegionalProduct": {
+      "value": 18928077.1,
+      "unit": "million KZT",
+      "period": "2025",
+      "sourceId": "bns-grp-2025"
+    },
+    "nationalGdpShare": {
+      "value": 11.9,
+      "unit": "percent",
+      "period": "2025",
+      "sourceId": "bns-grp-2025"
+    },
+    "realGrpGrowth": {
+      "value": 11.6,
+      "unit": "percent",
+      "period": "2025",
+      "sourceId": "bns-grp-2025"
+    },
+    "fixedCapitalInvestmentGrowth": {
+      "value": 21.3,
+      "unit": "percent",
+      "period": "2025",
+      "sourceId": "bns-fixed-investment-2025"
+    }
+  },
+  "investmentThesis": {
+    "whyHere": [
+      "全国政策、主权机构与公共采购决策高度集中，适合需要政企协同或区域总部落地的项目。",
+      "2025 年地区生产总值占全国 GDP 的 11.9%，实际增长 11.6%，固定资本投资实际增长 21.3%。"
+    ],
+    "whyNow": [
+      "人口净流入与投资增长为城市服务、物流、教育及产业配套带来需求。",
+      "应在项目尽调中将公共投资、采购周期与财政支付条件单独建模。"
+    ],
+    "prioritySectors": ["B2G/GovTech", "区域总部与专业服务", "物流与产业配套", "教育与城市服务"],
+    "riskFlags": [
+      "极端冬季气候会影响施工、物流与季节性经营成本。",
+      "涉及政府或国企的项目，应单独核验采购、审批、回款和合同执行风险。",
+      "房地产价格、租金与收益率尚未纳入；接入可审计的一手或持牌市场数据后再展示。"
+    ]
+  }
+}

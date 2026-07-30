@@ -1,0 +1,123 @@
+{
+  "id": "kazakhstan-priority-locations",
+  "asOf": "2026-07-29",
+  "cities": [
+    {
+      "id": "almaty",
+      "name": "阿拉木图",
+      "nameEn": "Almaty",
+      "type": "city",
+      "researchStatus": "official-core-data",
+      "population": { "value": 2366525, "asOf": "2026-06-01", "sourceId": "bns-almaty-region-2026-06" },
+      "summary": "全国最大的城市，也是商业、金融、教育、文化和消费服务最集中的城市。",
+      "economicRole": "全国重要的商业与消费中心；2026 年一季度 GRP 占全国 22.1%（当期口径）。",
+      "tags": ["商业与金融", "教育文化", "贸易服务", "人口集聚"],
+      "scorecard": { "market": 92, "policyAccess": 72, "logistics": 86, "talent": 88, "executionRisk": 48 },
+      "sectors": [
+        { "id": "realestate", "name": "服务式住宅与资产管理", "fit": 80, "thesis": "先用可比租金、入住率和退出流动性验证产品，不以广告报价代替成交数据。" },
+        { "id": "consumer", "name": "消费品牌与城市服务", "fit": 90, "thesis": "优先验证商圈客流、客单价、租约条件和本地化供应链。" },
+        { "id": "services", "name": "区域总部与企业服务", "fit": 88, "thesis": "围绕中资出海、金融、专业服务和本地招聘建立可复制的客户获取路径。" },
+        { "id": "logistics", "name": "城市分拨与供应链服务", "fit": 78, "thesis": "关注仓储租约、清关时效和货主结构，而非只看通道叙事。" }
+      ],
+      "risks": ["商业物业租约、汇率和进口成本应逐项目建模。", "高端消费项目需验证有效客流与可支配收入，不以商场品牌作为需求证明。"],
+      "fieldwork": [
+        { "day": "Day 1", "title": "消费与商业密度", "stops": ["核心商圈与可比门店", "商业地产顾问或物业方"], "questions": ["租金、扣点、免租期和续租率？", "客流、客单价与品牌撤店情况？"] },
+        { "day": "Day 2", "title": "资产与客户验证", "stops": ["目标板块与可比项目", "潜在企业客户或渠道伙伴"], "questions": ["真实出租率、回款周期和空置原因？", "首批付费客户的采购路径？"] },
+        { "day": "Day 3", "title": "合规与供应链", "stops": ["律所、会计与开户行", "仓储或机场物流节点"], "questions": ["许可、税务、外籍用工的关键前置条件？", "清关、库存和最后一公里的约束？"] }
+      ]
+    },
+    {
+      "id": "astana",
+      "name": "阿斯塔纳",
+      "nameEn": "Astana",
+      "type": "city",
+      "researchStatus": "official-core-data",
+      "population": { "value": 1674699, "asOf": "2026-06-01", "sourceId": "bns-astana-region-2026-06" },
+      "summary": "国家首都，也是政府机构、外交活动、总部经济和 AIFC 所在地。",
+      "economicRole": "2025 年 GRP 占全国 GDP 11.9%，实际增长 11.6%；固定资本投资实际增长 21.3%。",
+      "tags": ["国家首都", "AIFC", "公共服务", "城市建设"],
+      "scorecard": { "market": 76, "policyAccess": 95, "logistics": 78, "talent": 82, "executionRisk": 56 },
+      "sectors": [
+        { "id": "services", "name": "区域总部、金融与专业服务", "fit": 92, "thesis": "适合监管、政策、主权机构和区域总部高度相关的业务。" },
+        { "id": "logistics", "name": "城市物流与产业配套", "fit": 76, "thesis": "需以目标园区、土地条件、客户锚定与冬季运营成本核验。" },
+        { "id": "realestate", "name": "办公、居住与城市服务资产", "fit": 74, "thesis": "项目优先级取决于真实租户需求、供应管线和财政/政策周期。" },
+        { "id": "consumer", "name": "教育、医疗及城市服务", "fit": 72, "thesis": "先以人口迁入、目标客群支付能力和许可条件验证。" }
+      ],
+      "risks": ["政府或国企项目须单独核验采购、审批、回款及合同执行风险。", "极端冬季对建设、物流和运营成本有直接影响。"],
+      "fieldwork": [
+        { "day": "Day 1", "title": "政策与金融基础设施", "stops": ["AIFC 相关服务机构", "Astana Hub 或产业支持机构"], "questions": ["适用的准入与税务条件是什么？", "许可、牌照与实际落地时长？"] },
+        { "day": "Day 2", "title": "需求与项目现场", "stops": ["目标板块与可比资产", "潜在锚定客户或采购方"], "questions": ["目标客户的预算与采购周期？", "现有供应、空置和交付风险？"] },
+        { "day": "Day 3", "title": "执行与治理", "stops": ["当地律所、审计和银行", "产业园或物流节点"], "questions": ["投标、付款、争议解决和退出条款？", "冬季施工与运营的成本弹性？"] }
+      ]
+    },
+    {
+      "id": "horgos",
+      "name": "霍尔果斯走廊",
+      "nameEn": "Khorgos corridor",
+      "type": "cross-border-corridor",
+      "researchStatus": "corridor-level-data",
+      "population": null,
+      "summary": "中哈边境的重要跨境物流、加工和贸易走廊，涵盖口岸、陆港和经济特区等设施。",
+      "economicRole": "面向中国、中亚和欧洲方向的陆路交通与贸易节点。",
+      "tags": ["跨境通道", "陆港物流", "保税加工", "边境贸易"],
+      "scorecard": { "market": 54, "policyAccess": 78, "logistics": 96, "talent": 52, "executionRisk": 72 },
+      "sectors": [
+        { "id": "logistics", "name": "保税物流、冷链与转运", "fit": 95, "thesis": "以实际班列、换装、堆存、清关和客户合同来验证吞吐与现金流。" },
+        { "id": "industrial", "name": "农产品与轻加工", "fit": 78, "thesis": "项目须先锁定原料、出口通道、原产地规则及能源/用水条件。" },
+        { "id": "services", "name": "报关、结算与企业服务", "fit": 70, "thesis": "重点核验牌照、责任边界与货代客户回款周期。" }
+      ],
+      "risks": ["口岸和海关规则变化、拥堵与跨境责任分配可显著影响周转。", "无独立市级数据时，不展示伪精确的人口、房价或收益率。"],
+      "fieldwork": [
+        { "day": "Day 1", "title": "通道与节点验证", "stops": ["陆港、换装和保税设施", "海关或园区服务窗口"], "questions": ["峰谷期的真实通行和堆存时间？", "货物类别、原产地和监管限制？"] },
+        { "day": "Day 2", "title": "客户与资产验证", "stops": ["主要货主或运营商", "候选仓储/加工设施"], "questions": ["合同期限、最低吞吐和违约责任？", "水、电、冷链和消防是否满足目标货类？"] },
+        { "day": "Day 3", "title": "合规与压力测试", "stops": ["报关行、税务和法律顾问", "跨境结算服务方"], "questions": ["清关异常、货损和争议由谁承担？", "汇率、回款与制裁筛查流程？"] }
+      ]
+    },
+    {
+      "id": "shymkent",
+      "name": "奇姆肯特",
+      "nameEn": "Shymkent",
+      "type": "city",
+      "researchStatus": "official-core-data",
+      "population": { "value": 1308120, "asOf": "2026-06-01", "sourceId": "bns-shymkent-region-2026-06" },
+      "summary": "南部人口与制造业集聚城市，也是连接乌兹别克斯坦方向的区域贸易节点。",
+      "economicRole": "南部区域市场的制造、加工、贸易与消费服务中心。",
+      "tags": ["人口增长", "农产加工", "轻工业", "南部贸易"],
+      "scorecard": { "market": 72, "policyAccess": 70, "logistics": 74, "talent": 64, "executionRisk": 58 },
+      "sectors": [
+        { "id": "industrial", "name": "农产品深加工与轻工业", "fit": 90, "thesis": "先核验原料半径、季节性、能耗、废水和出口标准。" },
+        { "id": "consumer", "name": "大众消费与区域商业", "fit": 76, "thesis": "需以客单价、竞争密度和门店单位经济模型决定进入顺序。" },
+        { "id": "logistics", "name": "南部贸易与区域配送", "fit": 72, "thesis": "聚焦具体货类、边境路径和跨境税费，不以距离替代时效。" }
+      ],
+      "risks": ["中高端运营与工程人才供给需要项目级验证。", "低客单价市场应以单位经济模型而非城市人口判断可行性。"],
+      "fieldwork": [
+        { "day": "Day 1", "title": "需求与渠道", "stops": ["批发市场与零售商圈", "潜在经销商或客户"], "questions": ["品类销量、客单价和账期？", "渠道进入费与退换货规则？"] },
+        { "day": "Day 2", "title": "产业与供应", "stops": ["工业园与加工企业", "原料或设备供应商"], "questions": ["原料季节性、能源和用水成本？", "工人技能、工资和流失率？"] },
+        { "day": "Day 3", "title": "合规与跨境", "stops": ["地方投资促进机构", "税务、法律和物流服务方"], "questions": ["许可、土地和环保的实际节点？", "出口市场所需的质量与通关文件？"] }
+      ]
+    },
+    {
+      "id": "aktau",
+      "name": "阿克套",
+      "nameEn": "Aktau",
+      "type": "city-port",
+      "researchStatus": "port-and-region-data-pending",
+      "population": null,
+      "summary": "里海沿岸港口城市，是西部能源服务和跨里海运输的重要节点。",
+      "economicRole": "港口、能源服务和跨里海运输中心。",
+      "tags": ["里海港口", "能源服务", "跨里海通道", "西部城市"],
+      "scorecard": { "market": 60, "policyAccess": 70, "logistics": 88, "talent": 66, "executionRisk": 70 },
+      "sectors": [
+        { "id": "logistics", "name": "港口物流与跨里海服务", "fit": 90, "thesis": "核验船期、码头能力、堆场、费率和跨境衔接，而不是只看通道增长率。" },
+        { "id": "industrial", "name": "能源服务与工业配套", "fit": 82, "thesis": "以油气客户合同、资质、HSE 和账期作为进入前置条件。" },
+        { "id": "realestate", "name": "港口和工业配套资产", "fit": 62, "thesis": "需验证租户集中度、水电能力和特定货类/行业的许可。" }
+      ],
+      "risks": ["水资源、运力与单一行业依赖是项目现金流压力测试的必选项。", "城市级人口和地产指标待接入可审计来源后再展示。"],
+      "fieldwork": [
+        { "day": "Day 1", "title": "港口与运力", "stops": ["港口、堆场和货代运营方", "主要船运或铁路衔接方"], "questions": ["实际船期、压港、堆存和设备利用率？", "高峰期保障能力和替代路径？"] },
+        { "day": "Day 2", "title": "客户与基础设施", "stops": ["能源服务企业或工业客户", "候选地块与公用工程设施"], "questions": ["客户合同、资质与回款条款？", "水、电、处理能力和扩容成本？"] },
+        { "day": "Day 3", "title": "风险与退出", "stops": ["法律、税务和保险顾问", "地方投资促进与环保机构"], "questions": ["环境、HSE 和保险责任？", "资产转让、股权退出和外汇回流机制？"] }
+      ]
+    }
+  ]
+}
