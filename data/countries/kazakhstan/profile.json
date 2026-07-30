@@ -1,0 +1,71 @@
+{
+  "id": "kazakhstan",
+  "name": { "zh": "哈萨克斯坦共和国", "en": "Republic of Kazakhstan" },
+  "defaultCity": "almaty",
+  "updatedAt": "2026-07-30",
+  "dataPolicy": "页面展示公开发布的统计和制度信息，并保留来源和参考期。",
+  "cityIds": ["almaty", "astana", "horgos", "shymkent", "aktau"],
+  "hero": {
+    "eyebrow": "COUNTRY HANDBOOK · 资料更新至 2026-07-30",
+    "title": "国家制度、社会结构与经济概况",
+    "summary": "哈萨克斯坦位于欧亚大陆腹地，拥有广阔国土、丰富资源、年轻且持续城市化的人口，以及连接中国、俄罗斯和中亚的地理位置。本页从社会制度、区域联系、经济运行和经商规则四个方面介绍国家基本情况。"
+  },
+  "facts": [
+    { "icon": "fa-users", "label": "常住人口", "value": "20,495,975 人", "note": "截至 2026-01-01；城镇人口占 63.6%", "sources": ["bns-population-2026-01"] },
+    { "icon": "fa-map", "label": "国土与区位", "value": "272.49 万 km²", "note": "全球第 9 大国、最大的内陆国；连接中俄与中亚", "sources": ["gov-kz-about-2026"] },
+    { "icon": "fa-landmark", "label": "一级行政单位", "value": "17 州 + 3 个共和国级城市", "note": "阿斯塔纳、阿拉木图、奇姆肯特与各州同级", "sources": ["bns-admin-2026"] },
+    { "icon": "fa-chart-line", "label": "2025 名义 GDP", "value": "3,059 亿美元", "note": "初步估算；实际 GDP 增长 6.5%", "sources": ["bns-gdp-flash-2025"] },
+    { "icon": "fa-coins", "label": "货币与价格", "value": "坚戈 (KZT)", "note": "2025 年全年通胀 12.3%", "sources": ["bns-inflation-2025"] },
+    { "icon": "fa-scale-balanced", "label": "国家形态", "value": "单一制总统制共和国", "note": "总统任期 7 年；设有立法、行政和司法机关", "sources": ["gov-kz-about-2026"] }
+  ],
+  "sections": [
+    {
+      "id": "identity",
+      "icon": "fa-id-card",
+      "title": "国家身份与社会制度",
+      "entries": [
+        { "title": "语言、宗教与社会语境", "body": "哈萨克语为国语；俄语在国家机构和地方自治中依法使用。国家为世俗国家并保障宗教自由；官方介绍指出逊尼派伊斯兰为最广泛的宗教传统，俄罗斯东正教亦具代表性。宗教与族群信息不应直接替代客群、用工或消费判断。", "sources": ["gov-kz-about-2026"] },
+        { "title": "行政组织", "body": "截至 2026 年初，一级行政层级包括 17 个州与 3 个共和国级城市：阿斯塔纳、阿拉木图和奇姆肯特。", "sources": ["bns-admin-2026"] }
+      ]
+    },
+    {
+      "id": "geopolitics",
+      "icon": "fa-route",
+      "title": "政治与地缘经济位置",
+      "entries": [
+        { "title": "欧亚连接的地理条件", "body": "哈萨克斯坦与俄罗斯、中国、吉尔吉斯斯坦、乌兹别克斯坦和土库曼斯坦接壤，是连接东亚、中亚、里海地区和欧洲的重要陆路国家。", "sources": ["gov-kz-about-2026"] },
+        { "title": "多边贸易与区域规则", "body": "哈萨克斯坦自 2015 年起为 WTO 成员，也是欧亚经济联盟成员。跨境贸易通常涉及关税、原产地和共同技术规则等区域制度。", "sources": ["wto-kazakhstan-member-2015"] }
+      ]
+    },
+    {
+      "id": "economy",
+      "icon": "fa-chart-column",
+      "title": "经济位置与宏观读数",
+      "entries": [
+        { "title": "已实现：2025 年增长强劲，但价格压力高", "body": "国家统计局初步估算显示，2025 年 GDP 为 159.6 万亿坚戈（约 3,059 亿美元），实际增长 6.5%；工业占 GDP 26.6%，其中采矿 11.9%、制造业 13.0%。全年通胀为 12.3%。", "sources": ["bns-gdp-flash-2025", "bns-inflation-2025"] },
+        { "title": "2026 年经济展望", "body": "IMF 在 2026 年 1 月预计，2026 年实际 GDP 增长为 4.6%，平均通胀为 10.7%。这反映石油产量、财政活动、消费和价格水平对经济运行的共同影响。", "sources": ["imf-article-iv-2026"] },
+        { "title": "产业结构", "body": "资源、能源、矿业和加工制造是经济的重要基础；贸易、运输、金融、通信和其他服务业则集中在主要城市和交通节点。", "sources": ["bns-gdp-flash-2025", "gov-kz-about-2026"] }
+      ]
+    },
+    {
+      "id": "operating",
+      "icon": "fa-briefcase",
+      "title": "经商与制度设施",
+      "entries": [
+        { "title": "AIFC：阿斯塔纳国际金融中心", "body": "阿斯塔纳国际金融中心具有独立法律框架；其法院制度以英格兰和威尔士法律原则及国际金融中心标准为基础，是当地金融服务、资本市场和国际仲裁制度的重要组成部分。", "sources": ["aifc-constitutional-law", "gov-kz-investments-2026"] },
+        { "title": "经济特区与工业区", "body": "哈萨克斯坦设有多个经济特区和工业区，分布在不同地区并面向制造、物流、技术和其他产业。特区通常配套专门的海关、税收、土地或基础设施安排。", "sources": ["kazakh-invest-sez-2026"] },
+        { "title": "企业活动的基础规则", "body": "企业活动通常涉及公司登记、税务登记、劳动关系、行业许可、土地和建设、环境保护及跨境贸易等制度。相关政府机构和 KAZAKH INVEST 提供公开办事与投资服务信息。", "sources": ["kazakh-invest-portal-2026", "gov-kz-investments-2026"] }
+      ]
+    },
+    {
+      "id": "development",
+      "icon": "fa-industry",
+      "title": "国家发展特点",
+      "entries": [
+        { "title": "资源与工业", "body": "石油、天然气、铀、金属和其他矿产资源在国家经济中占有重要位置；采矿、冶金、能源和制造业构成工业体系的重要部分。", "sources": ["bns-gdp-flash-2025", "gov-kz-about-2026"] },
+        { "title": "人口与城市化", "body": "全国人口超过 2,000 万，城镇人口约占三分之二。阿拉木图、阿斯塔纳和奇姆肯特是人口、服务业和公共设施最集中的三个共和国级城市。", "sources": ["bns-population-2026-01", "bns-admin-2026"] },
+        { "title": "区域联系", "body": "中国、俄罗斯、中亚国家和里海沿岸国家共同塑造了哈萨克斯坦的贸易、交通和人员往来。霍尔果斯和阿克套分别代表东部陆路口岸与西部里海港口节点。", "sources": ["gov-kz-about-2026", "kazakhstan-mfa-khorgos-2025"] }
+      ]
+    }
+  ]
+}
