@@ -1,103 +1,665 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>酒店 / 民宿运营数据看板</title>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <main class="shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Homestay Operations</p>
-          <h1>酒店 / 民宿运营数据看板</h1>
-          <p id="sourceLine" class="source-line">正在读取数据...</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>哈萨克斯坦投资考察与城市研究中心 | Kazakhstan Investment Explorer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="top-bar">
+        <div class="brand">
+            <div class="brand-logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <span class="logo-badge">KIE</span>
+            </div>
+            <div class="brand-text">
+                <h1>KAZAKHSTAN INVESTMENT EXPLORER</h1>
+                <span class="sub-text">哈萨克斯坦国家、城市与投资环境研究中心</span>
+            </div>
         </div>
-        <button id="reloadBtn" class="ghost-button" type="button">刷新</button>
-      </header>
 
-      <section id="kpiGrid" class="kpi-grid" aria-label="核心运营指标"></section>
-
-      <section class="dashboard-grid">
-        <article class="panel span-7">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Conversion</p>
-              <h2>线索转化漏斗</h2>
+        <div class="header-metrics">
+            <div class="ticker-item">
+                <span class="ticker-label">法定货币</span>
+                <span class="ticker-val"><i class="fa-solid fa-coins gold"></i> 坚戈 (KZT) · 汇率以银行报价为准</span>
             </div>
-            <span class="tag">前端获客</span>
-          </div>
-          <div id="funnelChart" class="bar-chart"></div>
-        </article>
-
-        <article class="panel span-5">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Sources</p>
-              <h2>线索来源分布</h2>
+            <div class="ticker-item">
+                <span class="ticker-label">GDP 增速 (2025 初步)</span>
+                <span class="ticker-val gold">+6.5%</span>
             </div>
-            <span class="tag teal">内容渠道</span>
-          </div>
-          <div id="sourceChart" class="bar-chart compact"></div>
-        </article>
-
-        <article class="panel span-6">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Properties</p>
-              <h2>房源评估结论</h2>
+            <div class="ticker-item">
+                <span class="ticker-label">资料更新</span>
+                <span class="ticker-val cyan">主要统计资料更新至 2026 年</span>
             </div>
-            <span class="tag orange">收房判断</span>
-          </div>
-          <div id="propertyChart" class="bar-chart"></div>
-        </article>
+        </div>
 
-        <article class="panel span-6">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Revenue</p>
-              <h2>收入与净收益</h2>
-            </div>
-            <span class="tag teal">经营结果</span>
-          </div>
-          <div id="revenueChart" class="money-chart"></div>
-        </article>
-      </section>
+        <div class="header-actions">
+            <button class="btn btn-outline" id="btn-export-pdf" onclick="exportDueDiligenceReport()"><i class="fa-solid fa-file-pdf"></i> 打印 / 导出报告</button>
+            <button class="btn btn-primary" onclick="scrollToSection('city-section')"><i class="fa-solid fa-city"></i> 重要城市概览</button>
+        </div>
+    </header>
 
-      <section class="lower-grid">
-        <article class="panel">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Attention</p>
-              <h2>风险与待办摘要</h2>
-            </div>
-          </div>
-          <div id="riskList" class="risk-list"></div>
-        </article>
+    <div class="main-layout">
 
-        <article class="panel">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Leads</p>
-              <h2>近期线索</h2>
-            </div>
-          </div>
-          <div id="leadTable" class="mini-table"></div>
-        </article>
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-group">
+                <div class="nav-header">全景视角</div>
+                <a href="#macro-section" class="nav-item active"><i class="fa-solid fa-globe"></i> 国家概览</a>
+                <a href="#readiness-section" class="nav-item"><i class="fa-solid fa-list-check"></i> 投决准备度</a>
+                <a href="#map-section" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> 交互地图</a>
+                <a href="#policy-section" class="nav-item"><i class="fa-solid fa-scale-balanced"></i> 制度与税收规则</a>
+                <a href="#macro-finance-section" class="nav-item"><i class="fa-solid fa-chart-line"></i> 经济运行情况</a>
+                <a href="#administrative-section" class="nav-item"><i class="fa-solid fa-table-cells-large"></i> 行政区划</a>
+                <a href="#international-section" class="nav-item"><i class="fa-solid fa-building-flag"></i> 国际人口与企业</a>
+                <a href="#comparison-section" class="nav-item"><i class="fa-solid fa-table-columns"></i> 城市横向比较</a>
+            </nav>
 
-        <article class="panel">
-          <div class="panel-head">
-            <div>
-              <p class="eyebrow">Maintenance</p>
-              <h2>维修跟进</h2>
-            </div>
-          </div>
-          <div id="repairTable" class="mini-table"></div>
-        </article>
-      </section>
-    </main>
+            <nav class="nav-group">
+                <div class="nav-header">重点城市</div>
+                <a href="#city-section" class="nav-item" onclick="switchCity('almaty')"><i class="fa-solid fa-city"></i> 阿拉木图 (Almaty)</a>
+                <a href="#city-section" class="nav-item" onclick="switchCity('astana')"><i class="fa-solid fa-landmark"></i> 阿斯塔纳 (Astana)</a>
+                <a href="#city-section" class="nav-item" onclick="switchCity('horgos')"><i class="fa-solid fa-truck-fast"></i> 霍尔果斯 (Horgos)</a>
+                <a href="#city-section" class="nav-item" onclick="switchCity('shymkent')"><i class="fa-solid fa-industry"></i> 奇姆肯特 (Shymkent)</a>
+                <a href="#city-section" class="nav-item" onclick="switchCity('aktau')"><i class="fa-solid fa-ship"></i> 阿克套 (Aktau)</a>
+                <a href="#calculator-section" class="nav-item"><i class="fa-solid fa-microchip"></i> 项目评估器</a>
+                <a href="#project-pipeline-section" class="nav-item"><i class="fa-solid fa-list-check"></i> 研究项目库</a>
+            </nav>
+        </aside>
 
-    <script src="./app.js"></script>
-  </body>
+        <!-- Main Content Area -->
+        <main class="content-area">
+
+            <!-- Section 1: 国家基本信息与投资吸引力 -->
+            <section id="macro-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-earth-asia gold-icon"></i> 国家基本概览 · 哈萨克斯坦共和国</h2>
+                    <span class="tag">国家概况、社会制度、地理区位与经济结构</span>
+                </div>
+
+                <div class="grid-2-1">
+                    <!-- 模块1：国家基本信息卡片阵列 -->
+                    <div class="card macro-info-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-circle-info"></i> 核心国家维度数据</h3>
+                        </div>
+                        <div class="macro-grid">
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-users"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">全国人口</span>
+                                    <span class="info-val">20,495,975 人</span>
+                                    <span class="info-sub">截至 2026-01-01 · 城镇人口占 63.6%</span>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-map"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">国土面积</span>
+                                    <span class="info-val">约 272.4 万 km²</span>
+                                    <span class="info-sub">全球第 9 大国 · 欧亚陆路连接条件</span>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-building-columns"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">首都 / 政治中心</span>
+                                    <span class="info-val">阿斯塔纳 (Astana)</span>
+                                    <span class="info-sub">行政中心 · AIFC 所在地</span>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-city"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">最大城市 / 经济中心</span>
+                                    <span class="info-val">阿拉木图 (Almaty)</span>
+                                    <span class="info-sub">商业、金融与消费集聚中心</span>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">法定货币</span>
+                                    <span class="info-val">坚戈 (KZT)</span>
+                                    <span class="info-sub">国家法定货币</span>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                                <div class="info-body">
+                                    <span class="info-label">五大支柱产业</span>
+                                    <span class="info-val">资源 · 采矿 · 制造 · 贸易 · 服务</span>
+                                    <span class="info-sub">2025 年工业占 GDP 26.6% · 制造业 13.0%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 模块2：投资吸引力评分雷达图 -->
+                    <div class="card radar-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-radar"></i> 投资吸引力多维雷达图</h3>
+                            <span class="badge blue">内部研究视图 · 非外部评级</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="radarChart"></canvas>
+                        </div>
+                        <div class="radar-legend">
+                            <div class="r-item"><span class="stars">★★★★☆</span> 政治稳定</div>
+                            <div class="r-item"><span class="stars">★★★★☆</span> 外资开放</div>
+                            <div class="r-item"><span class="stars">★★★★★</span> 资源优势</div>
+                            <div class="r-item"><span class="stars">★★★☆☆</span> 市场规模</div>
+                            <div class="r-item"><span class="stars">★★★★☆</span> 消费能力</div>
+                            <div class="r-item"><span class="stars">★★★★★</span> 中国连接</div>
+                        </div>
+                        <p class="research-disclaimer">内部研究维度提示，不构成国家信用评级、法律意见或投资建议。</p>
+                    </div>
+                </div>
+
+                <div id="country-dossier" class="country-dossier" aria-live="polite"></div>
+            </section>
+
+            <section id="readiness-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-list-check gold-icon"></i> 投决准备度与尽调路线</h2>
+                    <span class="tag">把“了解国家”与“批准投资”分开；缺失证据必须显式呈现</span>
+                </div>
+                <div id="decision-readiness" class="decision-readiness"></div>
+                <div class="section-title minor-section-title">
+                    <h3><i class="fa-solid fa-route cyan-icon"></i> 投资尽调七条证据链</h3>
+                    <span class="tag">按 P0 / P1 排序；未选行业时不生成项目结论</span>
+                </div>
+                <div id="diligence-tracks" class="diligence-tracks"></div>
+            </section>
+
+            <section id="policy-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-scale-balanced gold-icon"></i> 国家制度、经商规则与税收</h2>
+                    <span class="tag">涵盖企业、税收、经济特区、劳动与跨境贸易的基础规则</span>
+                </div>
+                <div id="policy-center" class="policy-grid"></div>
+                <div class="section-title minor-section-title">
+                    <h3><i class="fa-solid fa-receipt gold-icon"></i> 2026 税制快照</h3>
+                    <span class="tag">2026 年主要税率摘要</span>
+                </div>
+                <div id="tax-snapshot" class="tax-snapshot"></div>
+            </section>
+
+            <section id="macro-finance-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-chart-line cyan-icon"></i> 经济运行与金融环境</h2>
+                    <span class="tag">利率、通胀、外债、外资、储备与固定资本投资</span>
+                </div>
+                <div id="macro-finance-grid" class="macro-finance-grid"></div>
+                <div class="section-title minor-section-title">
+                    <h3><i class="fa-solid fa-shield-halved red-icon"></i> 项目进入硬门槛</h3>
+                    <span class="tag">进入城市或项目研究前必须完成的证据链</span>
+                </div>
+                <div id="risk-gate-grid" class="risk-gate-grid"></div>
+            </section>
+
+            <section id="administrative-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-table-cells-large gold-icon"></i> 行政区划</h2>
+                    <span class="tag">17 个州与 3 个共和国级城市</span>
+                </div>
+                <div class="admin-update-layout">
+                    <article class="card admin-roster-card">
+                        <div class="card-header"><h3><i class="fa-solid fa-map"></i> 现行一级行政单位</h3><span class="badge blue">截至 2026-01-01</span></div>
+                        <p class="admin-roster-note">官方统计口径为 17 个州与 3 个共和国级城市。当前交互边界图保留 2017 年公开矢量版本，仅用于区域浏览；涉及政策、统计或项目定位时以下列官方名单和属地主管机关为准。</p>
+                        <div id="admin-roster" class="admin-roster"></div>
+                    </article>
+                    <article class="card cadence-card">
+                        <div class="card-header"><h3><i class="fa-solid fa-arrows-rotate"></i> 数据更新台账</h3></div>
+                        <div id="update-cadence" class="update-cadence"></div>
+                    </article>
+                </div>
+                <div id="governance-controls" class="governance-controls"></div>
+            </section>
+
+            <section id="city-coverage-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-city cyan-icon"></i> 五城市统一研究模板与数据覆盖度</h2>
+                    <span class="tag">城市、走廊和港口不强行同口径排名；缺口公开显示并纳入研究任务</span>
+                </div>
+                <div id="city-template" class="city-template-grid"></div>
+                <div id="city-coverage" class="city-coverage-grid"></div>
+            </section>
+
+            <section id="international-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-building-flag gold-icon"></i> 国际人口流动与企业联系</h2>
+                    <span class="tag">跨境人口流动、外资企业登记与公开企业项目</span>
+                </div>
+                <div id="international-intro" class="international-intro"></div>
+                <div class="international-summary-grid">
+                    <article class="card"><div class="card-header"><h3><i class="fa-solid fa-people-arrows-left-right"></i> 国际人口与迁移</h3></div><div id="international-population" class="international-cards"></div></article>
+                    <article class="card"><div class="card-header"><h3><i class="fa-solid fa-flag"></i> 中国企业与资本足迹</h3></div><div id="china-footprint" class="international-cards"></div></article>
+                </div>
+                <div class="section-title minor-section-title">
+                    <h3><i class="fa-solid fa-city cyan-icon"></i> 重点节点的国际商业集聚</h3>
+                    <span class="tag">企业分支登记数、SEZ 参与者与项目样本不能互相替代</span>
+                </div>
+                <div id="city-footprints" class="city-footprint-grid"></div>
+                <div class="section-title minor-section-title">
+                    <h3><i class="fa-solid fa-briefcase cyan-icon"></i> 公开的外国 / 中国企业项目</h3>
+                    <span class="tag">项目介绍以公开资料为准</span>
+                </div>
+                <div id="enterprise-projects" class="enterprise-project-grid"></div>
+            </section>
+
+            <!-- Section 2: 交互全景地图 -->
+            <section id="map-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-map-location-dot cyan-icon"></i> 哈萨克斯坦与重要城市地图</h2>
+                    <span class="tag">点击行政区或城市，查看城市基本介绍</span>
+                </div>
+
+                <div class="card map-container-card">
+                    <div class="map-wrapper">
+                        <!-- SVG Kazakhstan Map Canvas -->
+                        <svg class="kaz-svg-map" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="mapBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0e172a" />
+                                    <stop offset="100%" stop-color="#070b14" />
+                                </linearGradient>
+                                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="6" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+
+                            <!-- Background outline of Kazakhstan -->
+                            <rect width="1000" height="600" fill="url(#mapBgGrad)" rx="12" />
+                            <path class="country-shape" d="M 120 280 Q 150 200, 220 180 T 360 140 T 520 120 T 680 150 T 850 180 Q 890 260, 880 340 T 780 440 T 620 480 T 450 490 T 280 430 Q 160 380, 120 280 Z" />
+
+                            <!-- Route animation line (Xinjiang -> Horgos -> Almaty -> Astana -> Europe) -->
+                            <path class="logistics-pulse-line" d="M 870 320 L 790 350 L 710 400 L 520 230 L 250 210" />
+
+                            <!-- City Nodes -->
+                            <!-- 1. Almaty (阿拉木图) -->
+                            <g class="city-node active" id="node-almaty" onclick="switchCity('almaty')" transform="translate(710, 400)">
+                                <circle class="pulse-ring" r="22" />
+                                <circle class="city-dot gold" r="8" />
+                                <text x="14" y="5" class="city-label gold-text">阿拉木图 (Almaty)</text>
+                                <text x="14" y="22" class="city-subtext">经济/金融/消费中心</text>
+                            </g>
+
+                            <!-- 2. Astana (阿斯塔纳) -->
+                            <g class="city-node" id="node-astana" onclick="switchCity('astana')" transform="translate(520, 230)">
+                                <circle class="pulse-ring" r="18" />
+                                <circle class="city-dot cyan" r="7" />
+                                <text x="14" y="5" class="city-label">阿斯塔纳 (Astana)</text>
+                                <text x="14" y="22" class="city-subtext">首都·金融特区AIFC</text>
+                            </g>
+
+                            <!-- 3. Horgos (霍尔果斯) -->
+                            <g class="city-node" id="node-horgos" onclick="switchCity('horgos')" transform="translate(790, 350)">
+                                <circle class="pulse-ring" r="18" />
+                                <circle class="city-dot emerald" r="7" />
+                                <text x="14" y="5" class="city-label">霍尔果斯 (Horgos)</text>
+                                <text x="14" y="22" class="city-subtext">中哈陆路自由贸易口岸</text>
+                            </g>
+
+                            <!-- 4. Shymkent (奇姆肯特) -->
+                            <g class="city-node" id="node-shymkent" onclick="switchCity('shymkent')" transform="translate(600, 450)">
+                                <circle class="pulse-ring" r="16" />
+                                <circle class="city-dot blue" r="6" />
+                                <text x="14" y="5" class="city-label">奇姆肯特 (Shymkent)</text>
+                                <text x="14" y="22" class="city-subtext">南部轻工业&农业枢纽</text>
+                            </g>
+
+                            <!-- 5. Aktau (阿克套) -->
+                            <g class="city-node" id="node-aktau" onclick="switchCity('aktau')" transform="translate(250, 340)">
+                                <circle class="pulse-ring" r="16" />
+                                <circle class="city-dot purple" r="6" />
+                                <text x="14" y="5" class="city-label">阿克套 (Aktau)</text>
+                                <text x="14" y="22" class="city-subtext">里海石油港口·跨里海通道</text>
+                            </g>
+                        </svg>
+                        <div id="administrative-map" class="administrative-map" aria-label="哈萨克斯坦一级行政区可缩放地图"></div>
+                    </div>
+
+                    <p class="map-attribution">行政区边界：geoBoundaries ADM1（2017 年边界版本，基于 OpenStreetMap）；当前用于区域浏览，不作为最新法定行政区依据。</p>
+
+                    <div class="map-overlay-info">
+                        <div class="map-info-title"><i class="fa-solid fa-location-crosshairs"></i> <span id="map-focus-label">当前聚焦节点</span>: <span id="current-city-name" class="gold-text">阿拉木图 (Almaty)</span></div>
+                        <p id="current-city-summary">哈萨克斯坦第一大城市，是全国商业、金融、教育和文化的重要中心。</p>
+                        <button id="map-focus-action" class="btn btn-primary" type="button" onclick="focusCityFromMap(currentCityKey)"><i class="fa-solid fa-arrow-down"></i> 查看城市概览</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Investment Decision Workspace -->
+            <section id="comparison-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-table-columns cyan-icon"></i> 投资地点决策工作台</h2>
+                    <span class="tag">用于城市研究初筛与信息对比；不构成收益预测或投资建议</span>
+                </div>
+                <div class="decision-summary" id="decision-summary"></div>
+                <div class="comparison-grid" id="comparison-grid"></div>
+                <div class="source-panel" id="source-panel"></div>
+            </section>
+
+            <!-- Section 4: 城市投资档案 System (City Hub) -->
+            <section id="city-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-city gold-icon"></i> 重要城市投资档案 · <span id="archive-city-title">阿拉木图 (Almaty)</span></h2>
+                    <div class="city-tabs">
+                        <button class="tab-btn active" onclick="switchCity('almaty')">阿拉木图 (Almaty)</button>
+                        <button class="tab-btn" onclick="switchCity('astana')">阿斯塔纳 (Astana)</button>
+                        <button class="tab-btn" onclick="switchCity('horgos')">霍尔果斯 (Horgos)</button>
+                        <button class="tab-btn" onclick="switchCity('shymkent')">奇姆肯特 (Shymkent)</button>
+                        <button class="tab-btn" onclick="switchCity('aktau')">阿克套 (Aktau)</button>
+                    </div>
+                </div>
+
+                <!-- 1. 城市定位与人口消费 -->
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-compass"></i> 城市定位与人口概况</h3>
+                            <span class="sub-tag" id="city-data-status"></span>
+                        </div>
+                        <div class="profile-content" id="city-profile-box">
+                            <!-- JS Dynamically rendered profile -->
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-chart-column"></i> 月薪收入与消费层级分布</h3>
+                            <span class="sub-tag">平均月薪 ~40-45万 KZT (约 5,700-6,400 RMB)</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="incomeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 资产与运营成本证据 -->
+                <div id="realestate-section" class="sub-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-building-circle-check gold-icon"></i> 资产与运营成本证据</h3>
+                        </div>
+                        <div class="re-metrics-grid" id="re-metrics-box"></div>
+
+                        <h4 class="sub-title"><i class="fa-solid fa-layer-group"></i> 初始研究板块（持续核验）</h4>
+                        <div class="districts-grid" id="districts-container">
+                            <!-- Dynamically loaded district cards -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 商业区域地图与地质地标 -->
+                <div class="card">
+                    <div class="card-header">
+                            <h3><i class="fa-solid fa-city"></i> 城市商业与产业节点</h3>
+                    </div>
+                    <div class="mall-grid" id="mall-container">
+                        <!-- Mall Cards dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- 4. 产业结构分析（产业树） -->
+                <div id="industry-section" class="sub-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-sitemap cyan-icon"></i> 行业优先级与验证假设</h3>
+                        </div>
+                        <div class="tree-container" id="industry-tree-box">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 交通物流通道与营商环境税率 -->
+                <div class="grid-2">
+                    <div id="logistics-section" class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-route"></i> 跨国交通物流动线</h3>
+                        </div>
+                        <div class="timeline-route">
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-content">
+                                    <span class="tl-node">中国新疆 (乌鲁木齐 / 伊宁)</span>
+                                    <span class="tl-desc">中国出口货源与供应链起点</span>
+                                </div>
+                            </div>
+                            <div class="tl-arrow"><i class="fa-solid fa-angle-down"></i> 公路/铁路 300 km</div>
+                            <div class="tl-item active">
+                                <div class="tl-dot"></div>
+                                <div class="tl-content">
+                                    <span class="tl-node">霍尔果斯口岸 (Horgos)</span>
+                                    <span class="tl-desc">免签保税区 · 清关与铁路换轨</span>
+                                </div>
+                            </div>
+                            <div class="tl-arrow"><i class="fa-solid fa-angle-down"></i> 连霍高速 / 铁路 350 km</div>
+                            <div class="tl-item gold">
+                                <div class="tl-dot"></div>
+                                <div class="tl-content">
+                                    <span class="tl-node">阿拉木图 (Almaty)</span>
+                                    <span class="tl-desc">中亚最大的商品与物流分拨中心</span>
+                                </div>
+                            </div>
+                            <div class="tl-arrow"><i class="fa-solid fa-angle-down"></i> 欧亚陆桥</div>
+                            <div class="tl-item">
+                                <div class="tl-dot"></div>
+                                <div class="tl-content">
+                                    <span class="tl-node">俄罗斯 / 欧盟市场</span>
+                                    <span class="tl-desc">辐射 3 亿人口大市场</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card city-permit-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-scale-balanced"></i> 城市端准入与成本核验</h3>
+                        </div>
+                        <div class="city-permit-list">
+                            <p>城市层面需单独取得土地/用途、建设与环评、公共服务接入、地方园区资格、劳工与实际审批周期的书面证据。</p>
+                            <ul><li>国家税制仅在“政策、合规与法税尽调”统一维护</li><li>不得以线上注册时长推导行业许可或项目落地周期</li><li>涉及口岸、港口或园区时，按具体运营方与设施核验</li></ul>
+                            <a href="#policy-section" class="city-policy-link">查看国家层法税与合规依据 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 研究路径筛选器 -->
+                <div id="filter-section" class="sub-section">
+                    <div class="card filter-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-sliders gold-icon"></i> 研究路径筛选器</h3>
+                            <span class="tag">仅用于确定优先核验方向；不输出投资建议或收益承诺</span>
+                        </div>
+                        <div class="filter-controls">
+                            <div class="control-group">
+                                <label><i class="fa-solid fa-sack-dollar"></i> 资金规模 (RMB)</label>
+                                <div class="radio-btns" id="capital-options">
+                                    <button class="filter-btn active" data-val="small">10万 - 100万</button>
+                                    <button class="filter-btn" data-val="medium">100万 - 1000万</button>
+                                    <button class="filter-btn" data-val="large">1000万以上</button>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label><i class="fa-solid fa-gauge-high"></i> 风险偏好</label>
+                                <div class="radio-btns" id="risk-options">
+                                    <button class="filter-btn active" data-val="low">低风险 (稳健流)</button>
+                                    <button class="filter-btn" data-val="mid">中风险 (平衡增值)</button>
+                                    <button class="filter-btn" data-val="high">高风险 (高收益)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-result" id="recommendation-box">
+                            <!-- Dynamically updated recommendations -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. 风险评估系统 -->
+                <div id="risk-section" class="sub-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-shield-halved red-icon"></i> 城市 / 项目证据队列</h3>
+                        </div>
+                        <div class="risk-grid" id="risk-grid-box">
+                            <div class="risk-box">
+                                <div class="risk-title">政治与政策风险</div>
+                                <div class="stars">★★☆☆☆ <span class="risk-badge low">低-中风险</span></div>
+                                <p class="risk-desc">新哈萨克斯坦政治稳定，但需关注法律执行细节与地缘政治动向。</p>
+                            </div>
+                            <div class="risk-box">
+                                <div class="risk-title">汇率变动风险</div>
+                                <div class="stars">★★★☆☆ <span class="risk-badge mid">中风险</span></div>
+                                <p class="risk-desc">KZT 对 USD/RMB 存在一定波动，建议建立多货币对冲或锁定大宗结算。</p>
+                            </div>
+                            <div class="risk-box">
+                                <div class="risk-title">法律合规风险</div>
+                                <div class="stars">★★★☆☆ <span class="risk-badge mid">中风险</span></div>
+                                <p class="risk-desc">劳动法与外籍员工配额管理严格，公司注册需配备当地合规律所。</p>
+                            </div>
+                            <div class="risk-box">
+                                <div class="risk-title">合作伙伴信用风险</div>
+                                <div class="stars">★★★★☆ <span class="risk-badge high">较高风险</span></div>
+                                <p class="risk-desc">当地合作方信用资质参差不齐，务必进行深度背景尽调并分期支付。</p>
+                            </div>
+                            <div class="risk-box">
+                                <div class="risk-title">市场规模有限风险</div>
+                                <div class="stars">★★★☆☆ <span class="risk-badge mid">中风险</span></div>
+                                <p class="risk-desc">单一城市人口 200 万级，高饱和度赛道易触顶，应立足全中亚辐射视野。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: 决策工具 - 投资项目评估器 -->
+            <section id="calculator-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-microchip gold-icon"></i> 投资项目评估器 (Interactive Project Evaluator)</h2>
+                    <span class="tag">输入拟投资项目参数，系统实时算法生成量化评分与尽调避坑手册</span>
+                </div>
+
+                <div class="grid-1-2">
+                    <div class="card evaluator-form-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-sliders"></i> 项目参数录入</h3>
+                        </div>
+                        <form id="evaluator-form" onsubmit="return false;">
+                            <div class="form-group">
+                                <label>项目类型</label>
+                                <select id="eval-type" class="form-input">
+                                    <option value="realestate">服务式公寓 / 房地产</option>
+                                    <option value="trade">跨境贸易 / 供应链仓储</option>
+                                    <option value="consumer">特色消费品牌 / 餐饮连锁</option>
+                                    <option value="services">中国企业服务 / 咨询中介</option>
+                                    <option value="mining">矿业 / 新能源开发</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>拟投资金额 (万人民币 RMB)</label>
+                                <input type="number" id="eval-amount" class="form-input" value="300" min="10" max="10000">
+                            </div>
+
+                            <div class="form-group">
+                                <label>投资目的地城市</label>
+                                <select id="eval-city" class="form-input">
+                                    <option value="almaty">阿拉木图 (Almaty)</option>
+                                    <option value="astana">阿斯塔纳 (Astana)</option>
+                                    <option value="horgos">霍尔果斯 (Horgos)</option>
+                                    <option value="shymkent">奇姆肯特 (Shymkent)</option>
+                                    <option value="aktau">阿克套 (Aktau)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>预计年化收益率 (ROI %)</label>
+                                <input type="number" id="eval-roi" class="form-input" value="15" min="1" max="100">
+                            </div>
+
+                            <div class="form-group">
+                                <label>合作模式</label>
+                                <select id="eval-mode" class="form-input">
+                                    <option value="solo">独资经营 (100% 外资)</option>
+                                    <option value="jv_local">与当地企业合资 (JV)</option>
+                                    <option value="agency">品牌授权 / 代理加盟</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn-primary btn-block" onclick="calculateProjectScoreV2()"><i class="fa-solid fa-wand-magic-sparkles"></i> 运行可解释初筛</button>
+                        </form>
+                    </div>
+
+                    <div class="card evaluator-result-card">
+                        <div class="card-header">
+                            <h3><i class="fa-solid fa-chart-simple"></i> 算法分析与量化评估报告</h3>
+                        </div>
+                        <div id="eval-result-content">
+                            <div class="scores-row">
+                                <div class="score-dial">
+                                    <div class="dial-val green-text" id="score-opportunity">—</div>
+                                    <span class="dial-label">机会得分 / 100</span>
+                                </div>
+                                <div class="score-dial">
+                                    <div class="dial-val gold-text" id="score-risk">—</div>
+                                    <span class="dial-label">风险得分 / 100</span>
+                                </div>
+                                <div class="score-dial">
+                                    <div class="dial-val cyan-text" id="score-recommendation">未评估</div>
+                                    <span class="dial-label">综合评级</span>
+                                </div>
+                            </div>
+
+                            <div class="result-details" id="eval-details">
+                                <h4><i class="fa-solid fa-list-check"></i> 使用边界</h4>
+                                <ul class="checklist">
+                                    <li><strong>该工具仅作初筛：</strong>得分使用本平台内部研究权重与输入参数，不等同市场估值、法律意见或投资建议。</li>
+                                    <li><strong>进入下一关前：</strong>必须补齐法税、许可、客户、成本、融资、KYC/制裁和现金流压力测试证据。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="project-pipeline-section" class="dashboard-section">
+                <div class="section-title">
+                    <h2><i class="fa-solid fa-list-check cyan-icon"></i> 研究项目库与投决关口</h2>
+                    <span class="tag">研究线索，不是募资项目或投资建议</span>
+                </div>
+                <div class="project-pipeline" id="project-pipeline"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Kazakhstan Country Guide（哈萨克斯坦国家与城市概览手册）</p>
+        <p class="sub">资料来源包括哈萨克斯坦官方统计、政府部门与国际组织公开发布内容。</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
 </html>
