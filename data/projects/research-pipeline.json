@@ -1,0 +1,62 @@
+{
+  "id": "kazakhstan-research-pipeline",
+  "asOf": "2026-07-29",
+  "disclosure": "All entries are internal research leads. They are not live investment offers, valuations, or recommendations.",
+  "items": [
+    {
+      "id": "almaty-enterprise-services",
+      "cityId": "almaty",
+      "title": "中资出海企业服务需求验证",
+      "sector": "区域总部与企业服务",
+      "stage": "需求访谈",
+      "capitalBand": "轻资产 / 分阶段投入",
+      "thesis": "以公司设立、合规、人力、翻译和供应链服务切入，验证可重复付费需求。",
+      "evidenceNeeded": ["至少 10 家目标客户访谈", "服务价格与回款周期", "当地合作方的责任边界"],
+      "nextGate": "确认首批付费客户与合规交付能力后，再制定进入预算。"
+    },
+    {
+      "id": "astana-regional-hq",
+      "cityId": "astana",
+      "title": "区域总部与政策相关服务落地评估",
+      "sector": "区域总部、金融与专业服务",
+      "stage": "准入核验",
+      "capitalBand": "中等资本 / 人才密集",
+      "thesis": "面向政策、金融和总部经济节点验证设立架构、准入条件和可持续客户来源。",
+      "evidenceNeeded": ["实体形式与适用税务意见", "目标客户采购流程", "关键人才招聘方案"],
+      "nextGate": "获得法律税务书面意见及两家以上锚定客户意向后，进入商业计划阶段。"
+    },
+    {
+      "id": "horgos-cold-chain",
+      "cityId": "horgos",
+      "title": "跨境冷链与保税转运可行性研究",
+      "sector": "保税物流、冷链与转运",
+      "stage": "通道尽调",
+      "capitalBand": "重资产 / 合作运营",
+      "thesis": "围绕特定货类验证跨境时效、堆存、损耗、通关和最低吞吐量。",
+      "evidenceNeeded": ["目标货主最低吞吐承诺", "峰谷期真实时效记录", "保税、检疫和温控许可"],
+      "nextGate": "以长期客户合同与设施技术尽调作为投决前置条件。"
+    },
+    {
+      "id": "shymkent-agro-processing",
+      "cityId": "shymkent",
+      "title": "农产品深加工供应链验证",
+      "sector": "农产品深加工与轻工业",
+      "stage": "原料与市场验证",
+      "capitalBand": "中重资产 / 分期建设",
+      "thesis": "先验证原料稳定性、产品规格、能耗水耗、销售渠道与出口合规。",
+      "evidenceNeeded": ["全年原料采购曲线", "单位加工成本与良率", "渠道订单或试销数据"],
+      "nextGate": "完成小试或代工验证，并锁定产销两端后再决定建厂。"
+    },
+    {
+      "id": "aktau-port-services",
+      "cityId": "aktau",
+      "title": "港口与跨里海供应链服务研究",
+      "sector": "港口物流与跨里海服务",
+      "stage": "运力与客户验证",
+      "capitalBand": "中重资产 / 运营能力优先",
+      "thesis": "以港口服务、堆场或供应链配套切入，验证船期、费率、客户合同和公用工程约束。",
+      "evidenceNeeded": ["真实船期与压港记录", "客户货量和服务合同", "水电、HSE 与保险安排"],
+      "nextGate": "确认可持续运力与保底货量后，再进行资产方案及融资测算。"
+    }
+  ]
+}
